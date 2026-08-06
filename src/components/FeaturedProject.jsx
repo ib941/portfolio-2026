@@ -8,17 +8,17 @@ export default function FeaturedProject() {
     {
       title: "Red Night Campaign",
       description: "Dark forest staging & moody atmospheric lighting",
-      color: "from-red-900 to-red-700"
+      image: "/project-3.jpg"
     },
     {
       title: "Vanilla Gold Ring",
       description: "Precision studio halo lighting with golden accents",
-      color: "from-amber-500 to-yellow-400"
+      image: "/project-1.jpg"
     },
     {
       title: "Organic Cream Stage",
       description: "Textural product placement in natural settings",
-      color: "from-emerald-600 to-teal-500"
+      image: "/project-2.jpg"
     }
   ];
 
@@ -54,9 +54,8 @@ export default function FeaturedProject() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden glass-card p-4">
+            <div className="aspect-square rounded-3xl overflow-hidden glass-card p-4 shadow-xl">
               <div className="w-full h-full rounded-2xl overflow-hidden relative group">
-                {/* Placeholder images with gradients */}
                 {highlights.map((highlight, index) => (
                   <motion.div
                     key={index}
@@ -66,27 +65,24 @@ export default function FeaturedProject() {
                       scale: activeHighlight === index ? 1 : 1.05
                     }}
                     transition={{ duration: 0.5 }}
-                    className={`absolute inset-0 bg-gradient-to-br ${highlight.color}`}
+                    className="absolute inset-0"
                   >
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-white text-center p-8">
-                        <svg className="w-24 h-24 mx-auto mb-4 opacity-80" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                        <p className="text-lg font-medium">Project Visual {index + 1}</p>
-                      </div>
-                    </div>
+                    <img 
+                      src={highlight.image} 
+                      alt={highlight.title}
+                      className="w-full h-full object-cover rounded-2xl"
+                    />
                   </motion.div>
                 ))}
                 
                 {/* Hover overlay effect */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
               </div>
             </div>
 
             {/* Thumbnail navigation */}
             <div className="flex gap-4 mt-6 justify-center">
-              {highlights.map((_, index) => (
+              {highlights.map((highlight, index) => (
                 <motion.button
                   key={index}
                   onClick={() => setActiveHighlight(index)}
@@ -98,7 +94,7 @@ export default function FeaturedProject() {
                       : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <div className={`w-full h-full bg-gradient-to-br ${highlights[index].color}`} />
+                  <img src={highlight.image} alt={highlight.title} className="w-full h-full object-cover" />
                 </motion.button>
               ))}
             </div>
@@ -141,7 +137,9 @@ export default function FeaturedProject() {
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${highlight.color}`} />
+                    <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                      <img src={highlight.image} alt={highlight.title} className="w-full h-full object-cover" />
+                    </div>
                     <div>
                       <h5 className="font-semibold text-slate-800">{highlight.title}</h5>
                       <p className="text-sm text-slate-500">{highlight.description}</p>

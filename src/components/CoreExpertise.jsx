@@ -74,7 +74,7 @@ export default function CoreExpertise() {
   ];
 
   return (
-    <section className="py-24 px-6 relative">
+    <section id="expertise" className="py-24 px-6 relative">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-0 w-72 h-72 bg-summer-100 rounded-full opacity-40 blur-3xl" />

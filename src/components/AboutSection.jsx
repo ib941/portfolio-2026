@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutSection() {
   return (
-    <section className="py-24 px-6 relative">
+    <section id="about" className="py-24 px-6 relative">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <motion.div

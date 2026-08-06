@@ -5,7 +5,8 @@ export default function HeroSection() {
   const sectionRef = useRef(null);
 
   const handleScrollToWork = () => {
-    const nextSection = document.getElementById('engineering-section');
+    // Changed from 'engineering-section' to 'work' to match your updated ID
+    const nextSection = document.getElementById('work');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }

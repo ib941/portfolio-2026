@@ -68,7 +68,7 @@ export default function EngineeringSection() {
   ];
 
   return (
-    <section id="engineering-section" className="py-24 px-6 relative">
+     <section id="work" className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
