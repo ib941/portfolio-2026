@@ -4,26 +4,40 @@ node_modules/
 
 # Build artifacts
 dist/
+build/
 *.js.map
 
-# Environment variables
+# Environment
 .env
+.env.local
+.env.*
 
-# IDE files
+# Editors
 .vscode/
 .idea/
 
 # Logs
 *.log
 
-# OS generated files
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
 .DS_Store
 Thumbs.db
-
-# Package lock
-package-lock.json
-
-# Vite cache
-.vite/
-
 ```
