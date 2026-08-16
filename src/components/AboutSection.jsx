@@ -41,7 +41,7 @@ export default function AboutSection() {
 
             <div className="relative pl-6 border-l-4 border-summer-500">
               <p className="text-lg text-slate-700 italic">
-                "My goal is simple: achieve maximum output, speed, and cost efficiency across every project."
+                "I merge precision engineering with artistic vision to deliver exceptional results."
               </p>
             </div>
           </motion.div>
@@ -77,7 +77,7 @@ export default function AboutSection() {
                   By embedding cutting-edge Generative AI workflows directly into my design and development pipeline, I drastically reduce production costs while maintaining luxury-level visual polish.
                 </p>
                 <p>
-                  Whether it's managing Salla e-commerce stores, building custom front-end web interfaces, or creating full-scale marketing visuals, my goal is simple: achieve maximum output, speed, and cost efficiency across every project.
+                  Whether it's managing Salla e-commerce stores, building custom front-end web interfaces, or creating full-scale marketing visuals, I deliver speed, efficiency, and uncompromising quality.
                 </p>
               </div>
 
@@ -104,6 +104,37 @@ export default function AboutSection() {
             </div>
           </motion.div>
         </div>
+
+        {/* The "AI Look" Problem & My Solution */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-16"
+        >
+          <div className="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden">
+            {/* Decorative gradient border on left */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-600" />
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold font-display text-slate-800">
+                  The "AI Look" Problem & My Solution
+                </h3>
+              </div>
+
+              <p className="text-slate-600 leading-relaxed text-lg">
+                Most AI-generated commercial photography looks plastic, warped, or inconsistent. My workflows use advanced multi-stage diffusion pipelines, precise keyframing, and manual post-production to guarantee strict product fidelity, natural shadow casting, and luxury-grade textures that pass as high-end studio photography.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

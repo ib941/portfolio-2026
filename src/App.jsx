@@ -9,6 +9,7 @@ import FeaturedProject from './components/FeaturedProject';
 import SallaStorefronts from './components/SallaStorefronts';
 import AboutSection from './components/AboutSection';
 import CoreExpertise from './components/CoreExpertise';
+import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
@@ -35,6 +36,7 @@ function App() {
         <SallaStorefronts />
         <AboutSection />
         <CoreExpertise />
+        <TestimonialsSection />
         <ContactSection />
       </main>
       
