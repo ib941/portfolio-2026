@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection';
 import Showreel from './components/Showreel';
 import EngineeringSection from './components/EngineeringSection';
 import FeaturedProject from './components/FeaturedProject';
+import SallaStorefronts from './components/SallaStorefronts';
 import AboutSection from './components/AboutSection';
 import CoreExpertise from './components/CoreExpertise';
 import ContactSection from './components/ContactSection';
@@ -31,6 +32,7 @@ function App() {
         <Showreel />
         <EngineeringSection />
         <FeaturedProject />
+        <SallaStorefronts />
         <AboutSection />
         <CoreExpertise />
         <ContactSection />
