@@ -78,7 +78,7 @@ export default function Showreel() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-slate-900">
-                    2024 Showreel
+                    2026 Showreel
                   </h3>
                   <p className="text-sm text-slate-500">
                     Commerce & Generative Media Highlights
