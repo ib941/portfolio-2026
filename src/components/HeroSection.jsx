@@ -1,12 +1,22 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { useRef } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 export default function HeroSection() {
   const sectionRef = useRef(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const handleMouseMove = (e) => {
+    const rect = sectionRef.current.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
+
+  const background = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(59, 130, 246, 0.1), transparent)`;
 
   const handleScrollToWork = () => {
-    // Changed from 'engineering-section' to 'work' to match your updated ID
-    const nextSection = document.getElementById('work');
+    const nextSection = document.getElementById('showreel');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -15,8 +25,18 @@ export default function HeroSection() {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center relative px-6 pt-20"
+      onMouseMove={handleMouseMove}
+      className="min-h-screen flex items-center justify-center relative px-6 pt-20 bg-white overflow-hidden"
     >
+      {/* Spotlight Effect */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background }}
+      />
+      
+      {/* Static radial gradient for premium look */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50 via-white to-white pointer-events-none" />
+
       <div className="max-w-6xl mx-auto text-center z-10">
         {/* Animated Badge */}
         <motion.div
@@ -25,19 +45,19 @@ export default function HeroSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-8 inline-block"
         >
-          <span className="glass-card px-6 py-3 rounded-full text-sm font-medium text-summer-700">
+          <span className="bg-slate-50 px-6 py-3 rounded-full text-sm font-medium text-blue-600 border border-blue-100 shadow-sm">
             ✨ Welcome to the Future of Digital Media
           </span>
         </motion.div>
 
-        {/* Main Headline */}
+        {/* Main Headline with Text Reveal Effect */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold font-display mb-6 leading-tight"
         >
-          <span className="gradient-text">Ibrahim Alkabsi</span>
+          <TextReveal text="Ibrahim Alkabsi" />
         </motion.h1>
 
         {/* Sub-headline */}
@@ -71,7 +91,7 @@ export default function HeroSection() {
             onClick={handleScrollToWork}
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-8 py-4 bg-gradient-to-r from-summer-600 to-summer-500 text-white font-semibold rounded-full shadow-lg overflow-hidden"
+            className="group relative px-8 py-4 bg-blue-600 text-white font-semibold rounded-full shadow-lg overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-3">
               Explore My Work
@@ -84,11 +104,10 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </span>
-            <div className="absolute inset-0 shimmer-bg opacity-30" />
           </motion.button>
         </motion.div>
 
-        {/* Floating Elements */}
+        {/* Scroll to explore - Animated Bouncing Arrow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -98,15 +117,43 @@ export default function HeroSection() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 text-slate-400"
+            className="flex flex-col items-center gap-2 text-slate-400 cursor-pointer"
+            onClick={handleScrollToWork}
           >
-            <span className="text-sm">Scroll to explore</span>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <span className="text-sm font-medium text-slate-500">Scroll to explore</span>
+            <ChevronDown className="w-6 h-6 text-blue-600" />
           </motion.div>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+// Text Reveal Component with DecryptedText-like effect
+function TextReveal({ text }) {
+  const letters = text.split('');
+  
+  return (
+    <span className="inline-block">
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
+          animate={{ 
+            opacity: 1, 
+            y: 0, 
+            filter: 'blur(0px)',
+          }}
+          transition={{ 
+            duration: 0.5, 
+            delay: 0.2 + (index * 0.03),
+            ease: "easeOut" 
+          }}
+          className="inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent"
+        >
+          {letter === ' ' ? '\u00A0' : letter}
+        </motion.span>
+      ))}
+    </span>
   );
 }
