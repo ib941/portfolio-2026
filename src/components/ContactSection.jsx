@@ -108,7 +108,9 @@ export default function ContactSection() {
           className="flex items-center justify-center gap-6 mb-8"
         >
           <motion.a
-            href="#"
+            href="https://www.linkedin.com/in/ibrahim-alkebsy-13b066388"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -3, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-600 hover:shadow-md transition-all"
@@ -116,7 +118,9 @@ export default function ContactSection() {
             <LinkedinIcon />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://github.com/ib941"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -3, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-600 hover:shadow-md transition-all"
@@ -124,7 +128,9 @@ export default function ContactSection() {
             <GithubIcon />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.instagram.com/ibr._19"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -3, scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-600 hover:shadow-md transition-all"
