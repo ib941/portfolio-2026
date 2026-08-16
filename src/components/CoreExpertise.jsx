@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 
 const ExpertiseCard = ({ number, title, description, delay }) => {
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -12,20 +16,21 @@ const ExpertiseCard = ({ number, title, description, delay }) => {
         rotateY: 5,
         boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)"
       }}
-      className="glass-card rounded-2xl p-8 relative overflow-hidden group perspective-1000"
+      className="glass-card rounded-2xl p-8 relative overflow-hidden group perspective-1000 cursor-pointer"
       style={{ transformStyle: 'preserve-3d' }}
+      onClick={scrollToContact}
     >
       {/* Gradient background on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-summer-500/10 to-warm-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="relative z-10">
         {/* Number Badge */}
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-summer-500 to-summer-600 text-white font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">
           {number}
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold font-display text-slate-800 mb-4 group-hover:text-summer-700 transition-colors">
+        <h3 className="text-xl font-bold font-display text-slate-800 mb-4 group-hover:text-blue-700 transition-colors">
           {title}
         </h3>
 
@@ -35,7 +40,7 @@ const ExpertiseCard = ({ number, title, description, delay }) => {
         </p>
 
         {/* Decorative arrow */}
-        <div className="mt-6 flex items-center gap-2 text-summer-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+        <div className="mt-6 flex items-center gap-2 text-blue-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
           <span>Learn more</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -44,7 +49,7 @@ const ExpertiseCard = ({ number, title, description, delay }) => {
       </div>
 
       {/* Corner accent */}
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-summer-200 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-blue-200 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 };
@@ -77,8 +82,8 @@ export default function CoreExpertise() {
     <section id="expertise" className="py-24 px-6 relative">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-0 w-72 h-72 bg-summer-100 rounded-full opacity-40 blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-warm-100 rounded-full opacity-30 blur-3xl" />
+        <div className="absolute top-1/4 left-0 w-72 h-72 bg-blue-100 rounded-full opacity-40 blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-100 rounded-full opacity-30 blur-3xl" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -90,7 +95,7 @@ export default function CoreExpertise() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-summer-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4 block">
             What I Do
           </span>
           <h2 className="text-4xl md:text-5xl font-bold font-display text-slate-800 mb-6">
