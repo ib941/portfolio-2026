@@ -1,58 +1,52 @@
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
-  const { scrollY } = useScroll();
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md bg-white/80 border-b border-slate-200/50"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="glass-card rounded-full px-6 py-3 flex items-center justify-between">
-          {/* Logo */}
+        <div className="flex items-center justify-between">
+          {/* Logo - Left side */}
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="text-xl font-bold font-display gradient-text"
+            className="text-xl font-bold text-slate-900"
           >
-            IA
+            Ibrahim Alkabsi
           </motion.div>
 
-          {/* Navigation Links - Desktop */}
+          {/* Navigation Links - Right side */}
           <div className="hidden md:flex items-center gap-8">
-            {['Work', 'Expertise', 'About', 'Contact'].map((item) => (
+            {['Expertise', 'Projects', 'Stores'].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 whileHover={{ y: -2 }}
-                className="text-slate-600 hover:text-summer-600 font-medium transition-colors text-sm"
+                className="text-slate-600 hover:text-blue-600 font-medium transition-colors text-sm"
               >
                 {item}
               </motion.a>
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Far right */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-5 py-2 bg-gradient-to-r from-summer-500 to-summer-600 text-white text-sm font-semibold rounded-full shadow-md hover:shadow-lg transition-shadow"
+            onClick={scrollToContact}
+            className="px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-full shadow-md hover:shadow-lg hover:bg-blue-700 transition-all"
           >
-            Let's Talk
+            Start a Project
           </motion.button>
         </div>
       </div>
-
-      {/* Scroll Progress Indicator */}
-      <motion.div
-        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-summer-500 to-warm-500 origin-left"
-        style={{
-          scaleX: useScroll().scrollYProgress
-        }}
-      />
     </motion.nav>
   );
 }
