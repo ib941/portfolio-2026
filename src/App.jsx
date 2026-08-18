@@ -12,6 +12,7 @@ import CoreExpertise from './components/CoreExpertise';
 import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -48,6 +49,9 @@ function App() {
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 origin-left z-[100]"
         style={{ scaleX: scrollYProgress }}
       />
+      
+      {/* ChatBot Widget */}
+      <ChatBot />
     </>
   );
 }
