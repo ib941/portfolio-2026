@@ -61,13 +61,13 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col gap-12 sm:gap-16 max-w-4xl mx-auto w-full">
-      {/* Header Container with Humanized Title & Liquid Glass Effect */}
-      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 text-center w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+      {/* Header Container with Humanized Title & True Liquid Glass Effect */}
+      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center w-full relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black mb-4">
           Let&apos;s Build Together
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
           Have a project in mind, need automated commerce architecture, or want to discuss collaborating?
           Send a note below—I&apos;d love to hear from you.
         </p>
@@ -77,9 +77,9 @@ export default function ContactPage() {
         {/* Contact Info Sidebar */}
         <div className="flex flex-col gap-4 md:col-span-1">
           {/* Availability Card */}
-          <div className="p-6 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-            <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider mb-2">
+          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+            <h3 className="text-xs font-bold text-[#09090b] uppercase tracking-wider mb-2">
               Availability
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -88,21 +88,21 @@ export default function ContactPage() {
           </div>
 
           {/* Direct Email Card */}
-          <div className="p-6 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
               Email Address
             </div>
             <a
               href={`mailto:${emailAddress}`}
-              className="text-sm font-semibold text-slate-800 hover:text-blue-600 transition-colors break-all mb-4 block"
+              className="text-sm font-bold text-[#09090b] hover:text-blue-600 transition-colors break-all mb-4 block"
             >
               {emailAddress}
             </a>
             <button
               type="button"
               onClick={handleCopyEmail}
-              className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-xl text-xs font-medium text-blue-600 bg-white/40 hover:bg-white/60 border border-white/60 shadow-xs transition-all cursor-pointer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-full text-xs font-semibold text-blue-600 bg-white/60 hover:bg-white/85 border border-white/80 [box-shadow:0_4px_16px_rgba(15,23,42,0.05),inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all cursor-pointer"
             >
               {copied ? (
                 <>
@@ -119,21 +119,21 @@ export default function ContactPage() {
           </div>
 
           {/* Response Time Card */}
-          <div className="p-6 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-            <div className="flex items-center gap-2 text-slate-700 text-xs font-semibold mb-1">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
+          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+            <div className="flex items-center gap-2 text-[#09090b] text-xs font-bold mb-1">
+              <Clock className="w-3.5 h-3.5 text-blue-600" />
               <span>Response Time</span>
             </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               I usually reply within 24 hours on weekdays.
             </p>
           </div>
 
           {/* Social Channels */}
-          <div className="p-6 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
               Online Profiles
             </div>
             <div className="flex flex-col gap-2.5">
@@ -159,10 +159,10 @@ export default function ContactPage() {
                   href={channel.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between text-xs py-1 text-slate-600 hover:text-blue-600 transition-colors group"
+                  className="flex items-center justify-between text-xs py-1 text-slate-700 hover:text-blue-600 transition-colors group"
                 >
-                  <span className="font-medium">{channel.name}</span>
-                  <span className="text-slate-400 group-hover:text-blue-500 flex items-center gap-1">
+                  <span className="font-semibold">{channel.name}</span>
+                  <span className="text-slate-500 group-hover:text-pink-600 flex items-center gap-1">
                     {channel.handle}
                     <ArrowUpRight className="w-3 h-3" />
                   </span>
@@ -174,15 +174,15 @@ export default function ContactPage() {
 
         {/* Premium Large Liquid Glass Container for Contact Form */}
         <div className="md:col-span-2">
-          <div className="p-8 sm:p-10 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
+          <div className="p-8 sm:p-10 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.1),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
 
             {formSubmitted ? (
               <div className="flex flex-col items-center text-center py-12">
-                <div className="w-16 h-16 rounded-2xl bg-white/50 border border-white/60 flex items-center justify-center text-blue-600 mb-4 shadow-[0_0_25px_rgba(56,171,247,0.3)]">
+                <div className="w-16 h-16 rounded-2xl bg-white/60 border border-white/80 flex items-center justify-center text-blue-600 mb-4 shadow-[0_0_25px_rgba(56,189,248,0.3)]">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                <h2 className="text-2xl font-extrabold text-[#09090b] mb-2">
                   Message Sent
                 </h2>
                 <p className="text-sm text-slate-600 max-w-sm mb-6">
@@ -193,21 +193,21 @@ export default function ContactPage() {
                     setFormSubmitted(false);
                     setFormData({ name: '', email: '', interest: 'Front-End Web Development', message: '' });
                   }}
-                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-blue-600 bg-white/50 hover:bg-white/80 border border-white/60 shadow-xs transition-colors"
+                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-blue-600 bg-white/60 hover:bg-white/85 border border-white/80 shadow-xs transition-colors"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div className="flex items-center gap-2 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-0.5">
+                <div className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase tracking-wider mb-0.5">
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Start a Conversation</span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-[#09090b] tracking-tight">
                   Tell me about your project
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-500 -mt-2 mb-2">
+                <p className="text-xs sm:text-sm text-slate-600 -mt-2 mb-2">
                   Fill in a few details below and I&apos;ll be in touch with thoughts and next steps.
                 </p>
 
@@ -223,7 +223,7 @@ export default function ContactPage() {
                       placeholder="e.g. Alex Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="px-4 py-3.5 rounded-xl text-xs sm:text-sm bg-white/30 backdrop-blur-md border border-white/50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-400/80 focus:bg-white/50 focus:ring-4 focus:ring-blue-400/20 focus:shadow-[0_0_20px_rgba(56,171,247,0.25)] transition-all duration-300 shadow-xs"
+                      className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300"
                     />
                   </div>
 
@@ -238,7 +238,7 @@ export default function ContactPage() {
                       placeholder="alex@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="px-4 py-3.5 rounded-xl text-xs sm:text-sm bg-white/30 backdrop-blur-md border border-white/50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-400/80 focus:bg-white/50 focus:ring-4 focus:ring-blue-400/20 focus:shadow-[0_0_20px_rgba(56,171,247,0.25)] transition-all duration-300 shadow-xs"
+                      className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -251,10 +251,10 @@ export default function ContactPage() {
                   <select
                     value={formData.interest}
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="px-4 py-3.5 rounded-xl text-xs sm:text-sm bg-white/30 backdrop-blur-md border border-white/50 text-slate-900 focus:outline-none focus:border-blue-400/80 focus:bg-white/50 focus:ring-4 focus:ring-blue-400/20 focus:shadow-[0_0_20px_rgba(56,171,247,0.25)] transition-all duration-300 shadow-xs cursor-pointer"
+                    className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300 cursor-pointer"
                   >
                     {INTEREST_OPTIONS.map((opt) => (
-                      <option key={opt} value={opt} className="text-slate-900 bg-white">
+                      <option key={opt} value={opt} className="text-[#09090b] bg-white">
                         {opt}
                       </option>
                     ))}
@@ -272,14 +272,14 @@ export default function ContactPage() {
                     placeholder="Tell me about your project goals, timeline, or requirements..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="px-4 py-3.5 rounded-xl text-xs sm:text-sm bg-white/30 backdrop-blur-md border border-white/50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-400/80 focus:bg-white/50 focus:ring-4 focus:ring-blue-400/20 focus:shadow-[0_0_20px_rgba(56,171,247,0.25)] transition-all duration-300 shadow-xs resize-none"
+                    className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300 resize-none"
                   />
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="mt-2 flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-[0_8px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_25px_rgba(37,99,235,0.45)] active:scale-98"
+                  className="mt-2 flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white liquid-btn-primary active:scale-98"
                 >
                   <span>Send Message</span>
                   <Send className="w-4 h-4" />

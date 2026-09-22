@@ -90,13 +90,13 @@ const CASE_STUDIES = [
 export default function WorkPage() {
   return (
     <div className="flex flex-col gap-16 sm:gap-24">
-      {/* Header Container with True Translucent Glassmorphism */}
-      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 text-center max-w-4xl mx-auto w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+      {/* Header Container with True Liquid Glass Refraction */}
+      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center max-w-4xl mx-auto w-full relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black mb-4">
           Selected Work
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
           Web architecture, automated commerce infrastructure, and photorealistic generative AI pipelines
           engineered for performance, precision, and modern aesthetics.
         </p>
@@ -104,17 +104,17 @@ export default function WorkPage() {
 
       {/* PART 1: Web Architecture (Text-Only Glass Cards) */}
       <section className="flex flex-col gap-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/40 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/50 pb-4">
           <div>
-            <div className="flex items-center gap-2 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-1">
+            <div className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase tracking-wider mb-1">
               <Layers className="w-3.5 h-3.5" />
               <span>Part 1</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b]">
               Web Architecture
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-md">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-md">
             Custom web platforms, corporate showcases, and enterprise digital operations.
           </p>
         </div>
@@ -134,18 +134,18 @@ export default function WorkPage() {
                 delay: idx * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative flex flex-col justify-between rounded-3xl p-7 sm:p-8 border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/40 hover:backdrop-blur-2xl hover:border-white/85 hover:shadow-[0_22px_45px_-12px_rgba(15,23,42,0.08),0_0_28px_rgba(56,171,247,0.25)] overflow-hidden cursor-pointer"
+              className="group relative flex flex-col justify-between rounded-3xl p-7 sm:p-8 border border-white/65 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/60 hover:border-white/90 hover:shadow-[0_28px_50px_-12px_rgba(15,23,42,0.12),0_0_28px_rgba(56,189,248,0.2),0_0_20px_rgba(236,72,153,0.15)] overflow-hidden cursor-pointer"
             >
               {/* Specular Top Reflection Line */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
 
               <div>
                 {/* Header with Title and Top-Right Arrow Link Icon */}
                 <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#09090b] group-hover:text-blue-600 transition-colors">
                     {project.title}
                   </h3>
-                  <div className="p-2.5 rounded-2xl bg-white/40 border border-white/60 text-slate-500 group-hover:text-blue-600 group-hover:bg-white/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 shadow-xs">
+                  <div className="p-2.5 rounded-2xl bg-white/60 border border-white/80 text-slate-700 group-hover:text-blue-600 group-hover:bg-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)]">
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -157,11 +157,11 @@ export default function WorkPage() {
               </div>
 
               {/* Tags Section */}
-              <div className="pt-6 border-t border-white/50 flex flex-wrap items-center gap-2">
+              <div className="pt-6 border-t border-slate-200/50 flex flex-wrap items-center gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white/40 border border-white/60 shadow-xs backdrop-blur-sm"
+                    className="px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white/60 border border-white/80 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-sm"
                   >
                     {tag}
                   </span>
@@ -174,17 +174,17 @@ export default function WorkPage() {
 
       {/* PART 2: Generative AI Case Studies (Scrollable Image Layout) */}
       <section className="flex flex-col gap-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/40 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/50 pb-4">
           <div>
-            <div className="flex items-center gap-2 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-1">
+            <div className="flex items-center gap-2 text-pink-600 text-xs font-bold uppercase tracking-wider mb-1">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Part 2</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b]">
               Generative AI &amp; Commerce Case Studies
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-md">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-md">
             High-fidelity generative pipelines combining studio staging, precise lighting models, and commercial asset consistency.
           </p>
         </div>
@@ -193,6 +193,8 @@ export default function WorkPage() {
         <div className="flex flex-col gap-10 lg:gap-14">
           {CASE_STUDIES.map((study, idx) => {
             const isImageLeft = study.imageAlignment === 'left';
+            const accentColor = idx % 2 === 0 ? 'text-pink-600' : 'text-blue-600';
+            const dotColor = idx % 2 === 0 ? 'bg-pink-500' : 'bg-blue-500';
 
             return (
               <motion.article
@@ -205,10 +207,10 @@ export default function WorkPage() {
                   delay: idx * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-white/70"
+                className="group relative rounded-3xl border border-white/70 bg-white/40 backdrop-blur-2xl [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.1),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] overflow-hidden transition-all duration-500 hover:border-white/90 hover:shadow-[0_30px_60px_-15px_rgba(15,23,42,0.14),0_0_35px_rgba(56,189,248,0.2),0_0_25px_rgba(236,72,153,0.18)]"
               >
                 {/* Specular Top Reflection Line */}
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/95 to-transparent z-20" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-20" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px] lg:min-h-[500px]">
                   {/* Edge-to-Edge Image Column */}
@@ -235,18 +237,18 @@ export default function WorkPage() {
 
                   {/* Case Study Content Column */}
                   <div
-                    className={`p-8 sm:p-10 lg:p-12 flex flex-col justify-between lg:col-span-5 bg-white/10 ${
+                    className={`p-8 sm:p-10 lg:p-12 flex flex-col justify-between lg:col-span-5 bg-white/20 backdrop-blur-md ${
                       isImageLeft ? 'lg:order-2' : 'lg:order-1'
                     }`}
                   >
                     <div>
                       {/* Category Label */}
-                      <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 block mb-2">
+                      <span className={`text-xs font-mono font-bold uppercase tracking-wider ${accentColor} block mb-2`}>
                         {study.category}
                       </span>
 
                       {/* Case Study Title */}
-                      <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b] mb-4 group-hover:text-blue-600 transition-colors">
                         {study.title}
                       </h3>
 
@@ -260,9 +262,9 @@ export default function WorkPage() {
                         {study.keyPoints.map((point, pointIdx) => (
                           <li
                             key={pointIdx}
-                            className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 font-medium"
+                            className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
+                            <span className={`w-1.5 h-1.5 rounded-full ${dotColor} mt-2 shrink-0 shadow-xs`} />
                             <span>{point}</span>
                           </li>
                         ))}
@@ -270,11 +272,11 @@ export default function WorkPage() {
                     </div>
 
                     {/* Tags Section */}
-                    <div className="pt-6 border-t border-white/50 flex flex-wrap items-center gap-2">
+                    <div className="pt-6 border-t border-slate-200/50 flex flex-wrap items-center gap-2">
                       {study.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white/40 border border-white/60 shadow-xs backdrop-blur-sm"
+                          className="px-3 py-1 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white/60 border border-white/80 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-sm"
                         >
                           {tag}
                         </span>
@@ -289,9 +291,9 @@ export default function WorkPage() {
       </section>
 
       {/* Inquiry Callout Container with True Glassmorphism */}
-      <section className="p-8 sm:p-12 rounded-3xl border border-white/50 bg-white/30 backdrop-blur-xl shadow-xl shadow-slate-900/5 text-center flex flex-col items-center gap-4 max-w-2xl mx-auto w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent z-10" />
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+      <section className="p-8 sm:p-12 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center flex flex-col items-center gap-4 max-w-2xl mx-auto w-full relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
+        <h2 className="text-xl sm:text-2xl font-extrabold text-[#09090b]">
           Interested in building something similar?
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 max-w-md">
@@ -299,7 +301,7 @@ export default function WorkPage() {
         </p>
         <Link
           href="/contact"
-          className="mt-2 flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-[0_8px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_25px_rgba(37,99,235,0.45)] active:scale-98"
+          className="mt-2 flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white liquid-btn-primary active:scale-98"
         >
           <span>Get in Touch</span>
           <ArrowUpRight className="w-4 h-4" />

@@ -18,17 +18,14 @@ export default function HomePage() {
     <div className="flex flex-col gap-16 md:gap-24">
       {/* Hero Section Container with Liquid Glass Effect */}
       <section className="relative flex flex-col items-center text-center p-8 sm:p-14 md:p-16 max-w-5xl mx-auto w-full liquid-glass-section">
-        {/* Hero Title (H1) - Completely free of any small pill badges */}
+        {/* Hero Title (H1) - Completely free of any small pill badges, solid black */}
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-6 max-w-4xl"
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-black leading-[1.08] mb-6 max-w-4xl"
         >
-          Creative Web Developer &{' '}
-          <span className="bg-gradient-to-r from-blue-600 via-sky-500 to-blue-700 bg-clip-text text-transparent">
-            Systems Architect
-          </span>
+          Creative Web Developer & Systems Architect
         </motion.h1>
 
         {/* Hero Sub-headline */}
@@ -50,7 +47,7 @@ export default function HomePage() {
         >
           <Link
             href="/work"
-            className="group relative flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 transition-all shadow-[0_10px_25px_-5px_rgba(37,99,235,0.35),0_0_20px_rgba(56,171,247,0.2)] hover:shadow-[0_12px_30px_-5px_rgba(37,99,235,0.5),0_0_25px_rgba(56,171,247,0.35)] active:scale-98"
+            className="group relative flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold text-white liquid-btn-primary active:scale-98"
           >
             <span>Explore My Work</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -58,7 +55,7 @@ export default function HomePage() {
 
           <Link
             href="/contact"
-            className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-medium text-slate-700 liquid-glass hover:bg-white/50 hover:text-slate-900 transition-all border border-white/50 shadow-[0_8px_20px_rgba(15,23,42,0.03),inset_0_1px_1px_rgba(255,255,255,0.85)]"
+            className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-[#09090b] liquid-glass-pill hover:bg-white/60 transition-all"
           >
             <span>Get in Touch</span>
           </Link>
@@ -68,17 +65,17 @@ export default function HomePage() {
       {/* Metric Counters Strip - Liquid Glass Cards */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { metric: '5+ Years', label: 'Engineering Experience', sub: 'Production web apps' },
-          { metric: '100%', label: 'Type-Safe & Scalable', sub: 'Clean architecture' },
-          { metric: '60fps', label: 'Motion Dynamics', sub: 'Fluid interactions' },
-          { metric: '<100ms', label: 'Time to Interactive', sub: 'Optimized performance' },
+          { metric: '5+ Years', label: 'Engineering Experience', sub: 'Production web apps', color: 'text-blue-600' },
+          { metric: '100%', label: 'Type-Safe & Scalable', sub: 'Clean architecture', color: 'text-pink-600' },
+          { metric: '60fps', label: 'Motion Dynamics', sub: 'Fluid interactions', color: 'text-blue-600' },
+          { metric: '<100ms', label: 'Time to Interactive', sub: 'Optimized performance', color: 'text-pink-600' },
         ].map((item, idx) => (
           <GlassCard key={idx} variant="subtle" className="p-6 text-center">
-            <div className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mb-1">
+            <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b] mb-1">
               {item.metric}
             </div>
-            <div className="text-xs font-semibold text-blue-600">{item.label}</div>
-            <div className="text-[11px] text-slate-400 mt-0.5">{item.sub}</div>
+            <div className={`text-xs font-semibold ${item.color}`}>{item.label}</div>
+            <div className="text-[11px] text-slate-500 mt-0.5">{item.sub}</div>
           </GlassCard>
         ))}
       </section>
@@ -86,10 +83,10 @@ export default function HomePage() {
       {/* Core Engineering Disciplines - Liquid Glass Section */}
       <section className="p-8 sm:p-12 liquid-glass-section flex flex-col gap-8">
         <div className="flex flex-col items-center text-center gap-2">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b]">
             Crafted with modern frontend precision
           </h2>
-          <p className="text-sm text-slate-500 max-w-xl">
+          <p className="text-sm text-slate-600 max-w-xl">
             Combining scalable system architecture with polished, responsive user interfaces.
           </p>
         </div>
@@ -97,18 +94,18 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlassCard className="p-7 flex flex-col justify-between h-full group">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-blue-600 mb-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-400/25 flex items-center justify-center text-blue-600 mb-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] group-hover:scale-105 transition-transform">
                 <Code2 className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-[#09090b] mb-2">
                 Modern Component Architecture
               </h3>
-              <p className="text-sm text-slate-500 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Building scalable, maintainable applications with React 19, Next.js App Router, and TypeScript.
                 Modular design systems that grow with your product.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100/80 flex items-center text-xs font-medium text-slate-600 gap-1">
+            <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center text-xs font-semibold text-slate-700 gap-1">
               <span>Next.js & React</span>
               <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 ml-auto" />
             </div>
@@ -116,10 +113,10 @@ export default function HomePage() {
 
           <GlassCard className="p-7 flex flex-col justify-between h-full group" variant="accent">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-sky-500/15 border border-sky-400/30 flex items-center justify-center text-blue-700 mb-5 shadow-[0_0_20px_rgba(56,171,247,0.25),inset_0_1px_1px_rgba(255,255,255,0.95)] group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-400/30 flex items-center justify-center text-pink-600 mb-5 shadow-[0_0_20px_rgba(236,72,153,0.2),inset_0_1px_1px_rgba(255,255,255,0.95)] group-hover:scale-105 transition-transform">
                 <Layers className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-[#09090b] mb-2">
                 Fluid Micro-Interactions
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -127,26 +124,26 @@ export default function HomePage() {
                 that make software feel responsive and enjoyable to use.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-blue-100/60 flex items-center text-xs font-medium text-slate-700 gap-1">
+            <div className="mt-6 pt-4 border-t border-pink-100/70 flex items-center text-xs font-semibold text-slate-700 gap-1">
               <span>Framer Motion & Tailwind</span>
-              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 ml-auto" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-pink-600 ml-auto" />
             </div>
           </GlassCard>
 
           <GlassCard className="p-7 flex flex-col justify-between h-full group">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-blue-600 mb-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-400/25 flex items-center justify-center text-blue-600 mb-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] group-hover:scale-105 transition-transform">
                 <Zap className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              <h3 className="text-lg font-bold text-[#09090b] mb-2">
                 Automated Commerce & Systems
               </h3>
-              <p className="text-sm text-slate-500 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Designing resilient commerce flows, automated APIs, and operations workflows that run
                 reliably at scale with minimum latency.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100/80 flex items-center text-xs font-medium text-slate-600 gap-1">
+            <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center text-xs font-semibold text-slate-700 gap-1">
               <span>Python & API Workflows</span>
               <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 ml-auto" />
             </div>
@@ -159,10 +156,10 @@ export default function HomePage() {
         <GlassCard className="p-8 sm:p-10" variant="prominent">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="flex flex-col gap-3 max-w-xl">
-              <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
                 Featured Project
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
                 Z Fakhama — Custom Web Architecture
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -181,7 +178,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
               <Link
                 href="/work"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-[0_8px_20px_rgba(37,99,235,0.3)]"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white liquid-btn-primary"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4" />
