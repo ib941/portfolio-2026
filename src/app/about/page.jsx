@@ -3,226 +3,178 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Code2, 
-  Terminal, 
-  ShoppingBag, 
-  Palette, 
-  Layers, 
-  ArrowUpRight, 
-  CheckCircle2,
-  Cpu
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const CORE_SKILLS = [
   {
-    title: 'Next.js & React',
+    category: '01 / Frontend Architecture',
+    title: 'Next.js & React Engineering',
     description:
       'Engineered for modularity, sub-second route transitions, and responsive scalability using React 19 and Next.js 15 App Router.',
-    icon: Code2,
-    tags: ['React 19', 'Next.js App Router', 'TypeScript', 'SSR / SSG'],
+    tags: ['React 19', 'Next.js App Router', 'TypeScript', 'SSR / SSG', 'Tailwind CSS'],
   },
   {
-    title: 'Python Automation & Scripting',
+    category: '02 / Systems & Automation',
+    title: 'Python Scripting & Task Runners',
     description:
       'Building headless background task runners, automated media generation pipelines, asynchronous batch operations, and system daemons.',
-    icon: Terminal,
-    tags: ['Python 3', 'AsyncIO', 'Data Pipelines', 'Headless Workflows'],
+    tags: ['Python 3', 'AsyncIO', 'Data Pipelines', 'Headless Workflows', 'Automation'],
   },
   {
+    category: '03 / Commerce Operations',
     title: 'Salla API & E-Commerce Logic',
     description:
       'End-to-end commerce automation, real-time Salla webhooks, catalog synchronization, and tailored storefront operations architecture.',
-    icon: ShoppingBag,
-    tags: ['Salla API', 'Webhooks', 'Catalog Automation', 'Commerce Ops'],
+    tags: ['Salla Platform', 'Webhooks', 'Theme Customization', 'Catalog Automation'],
   },
   {
-    title: 'Tailwind CSS / UI Architecture',
+    category: '04 / Visual Execution',
+    title: 'UI Architecture & Generative Media',
     description:
-      'Precision design systems, light-theme liquid glassmorphism, accessible layouts, and fluid 60fps micro-interactions.',
-    icon: Palette,
-    tags: ['Tailwind CSS', 'Glassmorphism', 'Framer Motion', 'Design Systems'],
+      'Precision design systems, strict geometric typography, studio-grade commercial product rendering, and fluid micro-interactions.',
+    tags: ['Design Systems', 'Generative Media', 'Visual Direction', 'Geometric Layouts'],
   },
 ];
 
 const TIMELINE = [
   {
-    year: '2025 — Present',
+    period: '2025 — Present',
     role: 'Internal Visual & E-Commerce Solutions Specialist',
     company: 'GHENA Luxury Perfumes',
     description:
       'Directing end-to-end digital operations, including Salla storefront management, AI-driven commercial media generation, visual brand architecture, and targeted marketing campaign execution.',
   },
   {
-    year: '2024 — Present',
-    role: 'Junior Front-End Web Developer',
+    period: '2024 — Present',
+    role: 'Front-End Web Developer & Systems Architect',
     company: 'Independent / Freelance',
     description:
-      'Architecting and deploying responsive, high-performance web applications and custom client portfolios utilizing Next.js, React, Tailwind CSS, and Python automation scripts.',
+      'Architecting and deploying responsive, high-performance web applications and custom client platforms utilizing Next.js, React, Tailwind CSS, and Python automation scripts.',
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-12 sm:gap-16 max-w-4xl mx-auto w-full">
-      {/* Page Header Container with True Liquid Glass Effect */}
-      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black mb-4">
-          Ibrahim Alkabsi
+    <div className="min-h-screen bg-[#f7edd7] text-slate-900 pt-28 sm:pt-36 pb-24 w-full max-w-4xl mx-auto px-5 sm:px-8">
+      {/* Header Section */}
+      <section className="border-b border-black/10 pb-12 sm:pb-16 mb-14 sm:mb-16">
+        <span className="text-xs font-mono font-medium tracking-widest text-slate-500 uppercase block mb-3">
+          Profile &amp; Manifesto
+        </span>
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+          Bridging Code and Visual Geometry.
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
-          Creative Web Developer &amp; Systems Architect focused on delivering fast, elegant web applications,
-          automated systems, and fluid digital experiences.
+        
+        {/* Exact Architectural Manifesto Body Copy */}
+        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal">
+          Operating at the exact intersection of technical architecture and high-end visual design. My workflow combines robust web development in Next.js and Python with advanced graphic execution and cutting-edge AI tools. Whether it is configuring a complex e-commerce ecosystem, deploying a sleek progressive web app, or executing studio product photography, the philosophy remains the same: strip away the clutter, avoid soft edges, and build digital experiences anchored in strict architectural geometry.
         </p>
       </section>
 
-      {/* Core Engineering & Architecture Bio Glass Card */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.1),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] p-8 sm:p-10 relative overflow-hidden"
-      >
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-          <div className="w-16 h-16 rounded-2xl bg-white/60 border border-white/80 flex items-center justify-center shrink-0 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95),0_8px_20px_rgba(37,99,235,0.15)] text-blue-600">
-            <Cpu className="w-8 h-8" />
-          </div>
-
-          <div className="flex flex-col gap-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-            <div className="flex flex-col gap-1">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600">
-                Engineering Philosophy
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
-                Core Engineering &amp; Architecture
-              </h2>
-            </div>
-
-            <p className="text-slate-700 font-normal leading-relaxed">
-              I bridge the gap between high-fidelity visual design and robust backend operations. Beyond writing modular React interfaces, I leverage Python scripting and automation to build the invisible infrastructure that powers modern commerce, from automated media delivery to complex Salla API integrations.
-            </p>
-
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Whether architecting a custom corporate web platform, optimizing high-traffic digital storefront operations, or choreographing generative visual workflows, my focus remains on building software that is maintainable, deterministic, and delightful to interact with.
-            </p>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Grid of Liquid Glass Skill Badges/Cards */}
-      <section className="flex flex-col gap-6">
-        <div className="flex items-center justify-between border-b border-white/50 pb-3">
+      {/* SECTION 1: Technical Competencies & Stack */}
+      <section className="mb-20 sm:mb-24">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-black/10 pb-4 mb-8 sm:mb-12">
           <div>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#09090b] tracking-tight">
-              Technical Competencies &amp; Core Stack
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+              Technical Competencies
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
-              Specialized expertise across modern frontend engineering and backend automation.
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Core technical disciplines spanning web architecture, headless automation, and commerce systems.
             </p>
           </div>
+          <span className="text-xs font-mono text-slate-400">01 — Capabilities</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {CORE_SKILLS.map((skill, idx) => {
-            const Icon = skill.icon;
-            const accentText = idx % 2 === 0 ? 'text-blue-600' : 'text-pink-600';
-            const iconBg = idx % 2 === 0 ? 'text-blue-600' : 'text-pink-600';
+        {/* Minimal Grid without heavy white cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
+          {CORE_SKILLS.map((skill, idx) => (
+            <motion.div
+              key={skill.title}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="flex flex-col justify-between border-b border-black/10 pb-8"
+            >
+              <div>
+                <span className="text-xs font-mono text-slate-400 font-medium block mb-2">
+                  {skill.category}
+                </span>
+                <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-2">
+                  {skill.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                  {skill.description}
+                </p>
+              </div>
 
-            return (
-              <motion.div
-                key={skill.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-3xl p-7 sm:p-8 border border-white/65 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/60 hover:border-white/90 hover:shadow-[0_28px_50px_-12px_rgba(15,23,42,0.12),0_0_25px_rgba(56,189,248,0.2)] flex flex-col justify-between overflow-hidden"
-              >
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-white/60 border border-white/80 flex items-center justify-center ${iconBg} shadow-xs group-hover:scale-105 transition-all [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)]`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
-                      Core Domain
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl font-bold text-[#09090b] mb-2 group-hover:text-blue-600 transition-colors">
-                    {skill.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
-                    {skill.description}
-                  </p>
-                </div>
-
-                <div className="pt-5 border-t border-slate-200/50 flex flex-wrap gap-2">
-                  {skill.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 rounded-xl text-[11px] font-mono font-medium text-slate-700 bg-white/60 border border-white/80 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-black/5">
+                {skill.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-0.5 text-[11px] font-mono text-slate-600 bg-black/[0.03] border border-black/10 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Work Experience Section with Liquid Glass Container */}
-      <section className="rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.1),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] p-8 sm:p-10 flex flex-col gap-6 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-
-        <div className="flex items-center justify-between border-b border-white/50 pb-3">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-[#09090b] tracking-tight">
-            Work Experience
-          </h2>
-          <span className="text-xs text-slate-500 font-mono font-semibold">Professional Timeline</span>
+      {/* SECTION 2: Professional Timeline */}
+      <section className="mb-20 sm:mb-24">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-black/10 pb-4 mb-8 sm:mb-12">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+              Professional Timeline
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Hands-on operational and engineering background across commercial ecosystems.
+            </p>
+          </div>
+          <span className="text-xs font-mono text-slate-400">02 — Experience</span>
         </div>
 
-        <div className="relative pl-6 sm:pl-8 border-l border-blue-300/60 flex flex-col gap-8 mt-2">
+        <div className="flex flex-col gap-8">
           {TIMELINE.map((item, idx) => (
-            <div key={idx} className="relative">
-              {/* Milestone Indicator Node with Blue/Pink Refraction */}
-              <div className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 ${idx % 2 === 0 ? 'border-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.5)]' : 'border-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.5)]'}`} />
-
-              <div className="rounded-2xl border border-white/60 bg-white/40 backdrop-blur-xl [box-shadow:0_8px_24px_-4px_rgba(15,23,42,0.06),inset_0_1px_1px_0_rgba(255,255,255,0.95)] p-6 transition-all duration-300 hover:bg-white/60 hover:border-white/80">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-                  <h3 className="text-base font-bold text-[#09090b]">{item.role}</h3>
-                  <span className={`text-xs font-mono font-semibold ${idx % 2 === 0 ? 'text-blue-600' : 'text-pink-600'}`}>
-                    {item.year}
-                  </span>
-                </div>
-                <div className="text-xs font-semibold text-slate-500 mb-2">{item.company}</div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {item.description}
-                </p>
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="border-b border-black/10 pb-8 flex flex-col gap-2"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  {item.role}
+                </h3>
+                <span className="text-xs font-mono text-slate-500 font-medium">
+                  {item.period}
+                </span>
               </div>
-            </div>
+              <div className="text-xs font-mono font-semibold text-slate-700">
+                {item.company}
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1 font-normal">
+                {item.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* Call to Action Container */}
-      <section className="rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] p-8 sm:p-12 text-center flex flex-col items-center gap-4 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-        <h3 className="text-xl sm:text-2xl font-extrabold text-[#09090b]">
+      <section className="border-t border-black/10 pt-16 sm:pt-20 text-center flex flex-col items-center gap-4">
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
           Interested in working together?
-        </h3>
+        </h2>
         <p className="text-xs sm:text-sm text-slate-600 max-w-md">
           Available for custom web architecture, e-commerce automation, and full-stack development engagements.
         </p>
         <Link
           href="/contact"
-          className="mt-2 flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white liquid-btn-primary active:scale-98"
+          className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#2a2a2a] text-white text-xs sm:text-sm font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all"
         >
           <span>Get in Touch</span>
           <ArrowUpRight className="w-4 h-4" />

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-canvas: #f8fafc;
+  --color-canvas: #f7edd7;
 }
 
 @layer base {
@@ -21,7 +21,12 @@
     color: #0f172a;
     overflow-x: hidden;
     position: relative;
-    background-color: #f8fafc;
+    background-color: #f7edd7;
+    cursor: url('/pixel-cursor.png'), auto;
+  }
+
+  a, button {
+    cursor: url('/pixel-pointer.png'), pointer;
   }
 
   ::selection {
@@ -160,23 +165,19 @@
       inset 0 1.5px 1px 0 rgba(255, 255, 255, 1);
   }
 
-  /* Vibrant Liquid Action Button (Blue to Pink) */
+  /* Standardized Solid Flat Dark Grey 3D Action Button */
   .liquid-btn-primary {
-    background: linear-gradient(135deg, #0284c7 0%, #2563eb 45%, #ec4899 100%);
-    border: 1px solid rgba(255, 255, 255, 0.40);
-    box-shadow:
-      0 12px 28px -6px rgba(37, 99, 235, 0.40),
-      0 4px 18px 0 rgba(236, 72, 153, 0.30),
-      inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.60);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 0 #1a1a1a;
+    transition: all 0.15s ease;
   }
 
-  .liquid-btn-primary:hover {
-    transform: translateY(-1px) scale(1.02);
-    box-shadow:
-      0 16px 36px -6px rgba(37, 99, 235, 0.55),
-      0 6px 24px 0 rgba(236, 72, 153, 0.45),
-      inset 0 2px 2px 0 rgba(255, 255, 255, 0.85);
+  .liquid-btn-primary:active {
+    box-shadow: 0 0 0 #1a1a1a;
+    transform: translateY(4px);
   }
 }
 

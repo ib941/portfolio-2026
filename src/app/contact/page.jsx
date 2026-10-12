@@ -1,35 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  Send, 
-  Copy, 
-  Check, 
-  Clock, 
-  ArrowUpRight,
-  CheckCircle2,
-  Sparkles,
-  MessageSquare
-} from 'lucide-react';
-
-const INTEREST_OPTIONS = [
-  'Front-End Web Development',
-  'Python Automation & Systems',
-  'E-Commerce Architecture',
-  'Generative AI Media',
-];
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Copy, Check, Mail, Phone, Instagram } from 'lucide-react';
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    interest: 'Front-End Web Development',
-    message: '',
-  });
-
   const emailAddress = 'aalkbsy956@gmail.com';
+  const phoneNumber = '0534657849';
+  const instagramHandle = '@ibr._19';
 
   const handleCopyEmail = async () => {
     try {
@@ -49,246 +28,119 @@ export default function ContactPage() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
-      console.error('Failed to copy email address to clipboard:', err);
+      console.error('Failed to copy email:', err);
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Placeholder: Backend API will be integrated manually later
-    setFormSubmitted(true);
-  };
+  const contactChannels = [
+    {
+      label: 'Email',
+      value: emailAddress,
+      href: `mailto:${emailAddress}`,
+      icon: Mail,
+      isAction: true,
+    },
+    {
+      label: 'Phone',
+      value: phoneNumber,
+      href: `tel:${phoneNumber}`,
+      icon: Phone,
+    },
+    {
+      label: 'Instagram',
+      value: instagramHandle,
+      href: 'https://instagram.com/ibr._19',
+      icon: Instagram,
+    },
+  ];
 
   return (
-    <div className="flex flex-col gap-12 sm:gap-16 max-w-4xl mx-auto w-full">
-      {/* Header Container with Humanized Title & True Liquid Glass Effect */}
-      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black mb-4">
-          Let&apos;s Build Together
+    <div className="min-h-screen bg-[#f7edd7] text-slate-900 pt-28 sm:pt-36 pb-24 w-full max-w-3xl mx-auto px-5 sm:px-8">
+      {/* Header Section */}
+      <section className="border-b border-black/10 pb-12 sm:pb-16 mb-12 sm:mb-16">
+        <span className="text-xs font-mono font-medium tracking-widest text-slate-500 uppercase block mb-3">
+          Direct Inquiry
+        </span>
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+          Let&apos;s Build Something Sharp.
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-normal">
-          Have a project in mind, need automated commerce architecture, or want to discuss collaborating?
-          Send a note below—I&apos;d love to hear from you.
+        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal">
+          Ready to engineer a new platform or elevate your brand&apos;s visual architecture? Reach out directly.
         </p>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-        {/* Contact Info Sidebar */}
-        <div className="flex flex-col gap-4 md:col-span-1">
-          {/* Availability Card */}
-          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-            <h3 className="text-xs font-bold text-[#09090b] uppercase tracking-wider mb-2">
-              Availability
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Available for custom web applications, e-commerce automation, and select technical consulting engagements.
-            </p>
-          </div>
-
-          {/* Direct Email Card */}
-          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
-              Email Address
-            </div>
-            <a
-              href={`mailto:${emailAddress}`}
-              className="text-sm font-bold text-[#09090b] hover:text-blue-600 transition-colors break-all mb-4 block"
+      {/* Structural Contact Details Layout */}
+      <section className="flex flex-col">
+        {contactChannels.map((item, idx) => {
+          const Icon = item.icon;
+          return (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: idx * 0.1 }}
+              className="py-8 sm:py-10 border-b border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
             >
-              {emailAddress}
-            </a>
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-full text-xs font-semibold text-blue-600 bg-white/60 hover:bg-white/85 border border-white/80 [box-shadow:0_4px_16px_rgba(15,23,42,0.05),inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all cursor-pointer"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Copied to Clipboard!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Copy Email Address</span>
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* Response Time Card */}
-          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-            <div className="flex items-center gap-2 text-[#09090b] text-xs font-bold mb-1">
-              <Clock className="w-3.5 h-3.5 text-blue-600" />
-              <span>Response Time</span>
-            </div>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              I usually reply within 24 hours on weekdays.
-            </p>
-          </div>
-
-          {/* Social Channels */}
-          <div className="p-6 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
-              Online Profiles
-            </div>
-            <div className="flex flex-col gap-2.5">
-              {[
-                { 
-                  name: 'LinkedIn', 
-                  handle: 'Ibrahim Alkebsy', 
-                  href: 'https://www.linkedin.com/in/ibrahim-alkebsy-13b066388/' 
-                },
-                { 
-                  name: 'Instagram', 
-                  handle: '@ibr._19', 
-                  href: 'https://instagram.com/ibr._19' 
-                },
-                { 
-                  name: 'WhatsApp', 
-                  handle: '0534657849', 
-                  href: 'https://wa.me/966534657849' 
-                },
-              ].map((channel) => (
-                <a
-                  key={channel.name}
-                  href={channel.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between text-xs py-1 text-slate-700 hover:text-blue-600 transition-colors group"
-                >
-                  <span className="font-semibold">{channel.name}</span>
-                  <span className="text-slate-500 group-hover:text-pink-600 flex items-center gap-1">
-                    {channel.handle}
-                    <ArrowUpRight className="w-3 h-3" />
+              <div className="flex items-start sm:items-center gap-4">
+                <div className="w-10 h-10 rounded border border-black/10 bg-black/[0.03] flex items-center justify-center text-slate-800 shrink-0">
+                  <Icon className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-xs font-mono text-slate-400 font-medium block">
+                    {item.label}
                   </span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Premium Large Liquid Glass Container for Contact Form */}
-        <div className="md:col-span-2">
-          <div className="p-8 sm:p-10 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.1),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-
-            {formSubmitted ? (
-              <div className="flex flex-col items-center text-center py-12">
-                <div className="w-16 h-16 rounded-2xl bg-white/60 border border-white/80 flex items-center justify-center text-blue-600 mb-4 shadow-[0_0_25px_rgba(56,189,248,0.3)]">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h2 className="text-2xl font-extrabold text-[#09090b] mb-2">
-                  Message Sent
-                </h2>
-                <p className="text-sm text-slate-600 max-w-sm mb-6">
-                  Thank you for reaching out! I&apos;ve received your message and will get back to you shortly.
-                </p>
-                <button
-                  onClick={() => {
-                    setFormSubmitted(false);
-                    setFormData({ name: '', email: '', interest: 'Front-End Web Development', message: '' });
-                  }}
-                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-blue-600 bg-white/60 hover:bg-white/85 border border-white/80 shadow-xs transition-colors"
-                >
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <div className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase tracking-wider mb-0.5">
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>Start a Conversation</span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#09090b] tracking-tight">
-                  Tell me about your project
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 -mt-2 mb-2">
-                  Fill in a few details below and I&apos;ll be in touch with thoughts and next steps.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Name Input */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-slate-700">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Alex Smith"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300"
-                    />
-                  </div>
-
-                  {/* Email Input */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-slate-700">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="alex@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300"
-                    />
-                  </div>
-                </div>
-
-                {/* Area of Interest Dropdown */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-700">
-                    Area of Interest
-                  </label>
-                  <select
-                    value={formData.interest}
-                    onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300 cursor-pointer"
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 hover:text-black transition-colors"
                   >
-                    {INTEREST_OPTIONS.map((opt) => (
-                      <option key={opt} value={opt} className="text-[#09090b] bg-white">
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
+                    {item.value}
+                  </a>
                 </div>
+              </div>
 
-                {/* Message Textarea */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-700">
-                    Message
-                  </label>
-                  <textarea
-                    required
-                    rows={5}
-                    placeholder="Tell me about your project goals, timeline, or requirements..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="px-4 py-3.5 rounded-2xl text-xs sm:text-sm bg-white/45 backdrop-blur-md border border-white/70 text-[#09090b] placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white/70 focus:ring-4 focus:ring-blue-400/20 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] transition-all duration-300 resize-none"
-                  />
-                </div>
+              <div className="flex items-center gap-3 pl-14 sm:pl-0">
+                {item.isAction && (
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="px-4 py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5" />
+                        <span>Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                )}
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="mt-2 flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white liquid-btn-primary active:scale-98"
+                <a
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="px-4 py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>Send Message</span>
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
+                  <span>Open</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </motion.div>
+          );
+        })}
+      </section>
+
+      {/* Structural Availability Note */}
+      <section className="mt-16 sm:mt-20 pt-8 border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-slate-500 gap-2">
+        <span>Available for technical consulting &amp; custom builds</span>
+        <span>Response within 24 hours</span>
+      </section>
     </div>
   );
 }

@@ -8,10 +8,11 @@ export default function GlassCard({
   hoverEffect = true,
   glowOnHover = false,
   variant = 'default',
+  rounded = 'rounded-3xl',
   ...props
 }) {
   const baseStyles =
-    'relative overflow-hidden rounded-3xl border border-white/65 transition-all duration-500 ease-out';
+    `relative overflow-hidden ${rounded} border border-white/65 transition-all duration-500 ease-out`;
   
   const variantStyles = {
     default:

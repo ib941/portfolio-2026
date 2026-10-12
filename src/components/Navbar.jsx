@@ -44,21 +44,17 @@ export default function Navbar() {
       <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav
           aria-label="Main Navigation"
-          className={`pointer-events-auto transition-all duration-300 rounded-full flex items-center justify-between gap-3 px-5 py-2.5 border ${
-            scrolled
-              ? 'bg-white/55 backdrop-blur-2xl border-white/80 shadow-[0_20px_45px_-12px_rgba(15,23,42,0.12),inset_0_1.5px_1.5px_0_rgba(255,255,255,1),inset_0_-1px_2px_0_rgba(255,255,255,0.5)]'
-              : 'bg-white/45 backdrop-blur-2xl border-white/70 shadow-[0_16px_36px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)]'
-          }`}
+          className="pointer-events-auto transition-all duration-300 rounded-2xl flex items-center justify-between gap-3 sm:gap-6 px-5 py-2.5 bg-white/20 backdrop-blur-md border border-black/10 shadow-sm"
         >
           {/* Main Logo: Ibrahim Alkabsi */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-[#09090b] hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2.5 text-slate-900 hover:opacity-85 transition-opacity"
           >
-            <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-600 to-pink-500 flex items-center justify-center text-white text-[10px] font-bold shadow-sm">
+            <div className="w-7 h-7 rounded-lg bg-[#2a2a2a] flex items-center justify-center text-white text-xs font-bold shadow-sm">
               IA
             </div>
-            <span className="text-sm font-bold tracking-tight text-[#09090b]">
+            <span className="text-sm font-bold tracking-tight text-slate-900">
               Ibrahim Alkabsi
             </span>
           </Link>
@@ -73,10 +69,10 @@ export default function Navbar() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`relative px-4 py-1.5 rounded-full text-xs tracking-wide transition-all duration-200 flex items-center gap-1.5 ${
+                  className={`relative px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all duration-200 flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-[#09090b] font-bold'
-                      : 'text-slate-600 hover:text-[#09090b] hover:bg-white/40'
+                      ? 'text-black font-semibold'
+                      : 'text-slate-700 hover:text-black hover:bg-black/5'
                   }`}
                 >
                   {isActive && (
@@ -87,21 +83,36 @@ export default function Navbar() {
                         stiffness: 450,
                         damping: 35,
                       }}
-                      className="absolute inset-0 rounded-full bg-white/80 border border-white/95 shadow-[0_4px_16px_rgba(37,99,235,0.15),0_0_12px_rgba(236,72,153,0.12),inset_0_1px_1px_rgba(255,255,255,1)] -z-10"
+                      className="absolute inset-0 rounded-lg bg-black/5 border border-black/10 -z-10 shadow-xs"
                     />
                   )}
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
+                  <Icon
+                    className={`w-3.5 h-3.5 ${
+                      isActive ? 'text-black' : 'text-slate-500'
+                    }`}
+                  />
                   <span>{item.name}</span>
                 </Link>
               );
             })}
           </div>
 
+          {/* Desktop Action Button (Solid flat dark grey bg-[#2a2a2a] with 3D click effect) */}
+          <div className="hidden md:flex items-center">
+            <Link
+              href="/contact"
+              className="flex items-center gap-1.5 px-4 py-2 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all"
+            >
+              <span>Get in Touch</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
-            className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-white/50 hover:bg-white/80 border border-white/70 text-[#09090b] transition-colors"
+            className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg bg-black/5 hover:bg-black/10 border border-black/10 text-slate-800 transition-colors"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -116,7 +127,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-20 left-4 right-4 z-40 md:hidden p-3 rounded-3xl bg-white/60 backdrop-blur-3xl shadow-2xl border border-white/80 [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.15),inset_0_1.5px_1.5px_0_rgba(255,255,255,1)]"
+            className="fixed top-20 left-4 right-4 z-40 md:hidden p-3 rounded-2xl bg-[#f7edd7]/95 backdrop-blur-xl border border-black/10 shadow-2xl text-slate-900"
           >
             <div className="flex flex-col gap-1.5">
               {NAV_ITEMS.map((item) => {
@@ -127,24 +138,25 @@ export default function Navbar() {
                   <Link
                     key={item.path}
                     href={item.path}
-                    className={`flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-medium transition-colors ${
+                    className={`flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       isActive
-                        ? 'bg-white/80 text-[#09090b] border border-white font-bold shadow-sm'
-                        : 'text-slate-700 hover:bg-white/40'
+                        ? 'bg-black/10 text-black border border-black/15 font-semibold shadow-xs'
+                        : 'text-slate-800 hover:bg-black/5'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <Icon className={`w-4 h-4 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? 'text-black' : 'text-slate-500'}`} />
                       <span>{item.name}</span>
                     </div>
                   </Link>
                 );
               })}
 
-              <div className="pt-2 mt-1 border-t border-white/50">
+              {/* Mobile Action Button (Solid flat dark grey bg-[#2a2a2a] with 3D click effect) */}
+              <div className="pt-2 mt-1 border-t border-black/10">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-pink-500 hover:opacity-90 transition-opacity shadow-[0_4px_16px_rgba(37,99,235,0.25)]"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all"
                 >
                   <span>Get in Touch</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

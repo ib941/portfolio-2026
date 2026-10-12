@@ -3,305 +3,291 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Sparkles, Layers, Cpu } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
-const WEB_PROJECTS = [
+const WEB_ENGINEERING_PROJECTS = [
   {
-    id: 'z-fakhama',
+    id: 'shourna',
+    title: 'Shourna',
+    subtitle: 'Corporate & Industrial Platform',
+    description:
+      'Custom multi-language industrial web infrastructure featuring bilingual localized routing (Arabic & English), responsive service directories, and high-performance asset delivery.',
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS'],
+    href: 'https://shourna.com',
+    displayUrl: 'shourna.com',
+  },
+  {
+    id: 'zfakhama',
     title: 'Z Fakhama',
-    description: 'Custom Web Architecture & High-Performance UI.',
-    tags: ['Next.js', 'React', 'Tailwind CSS'],
+    subtitle: 'Custom Web Architecture',
+    description:
+      'High-performance digital presence engineered for fast time-to-interactive, fluid micro-interactions, clean system architecture, and visual distinction.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Frontend Arch'],
     href: 'https://www.zfakhama.com/ar',
+    displayUrl: 'zfakhama.com',
   },
   {
     id: 'gtf-plastics',
     title: 'GTF Plastics',
-    description: 'B2B Web Development & Corporate Showcase.',
-    tags: ['Next.js', 'React', 'Tailwind CSS'],
+    subtitle: 'Industrial B2B Showcase',
+    description:
+      'Corporate B2B web infrastructure and manufacturing showcase engineered for high responsiveness, structured product presentation, and enterprise branding.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'B2B Enterprise'],
     href: 'https://www.gtf-plastics.com/ar',
+    displayUrl: 'gtf-plastics.com',
   },
+];
+
+const SALLA_PROJECTS = [
   {
-    id: 'abayat-rowa',
-    title: 'Abayat Rowa',
-    description: 'Digital Storefront Management & Catalog Optimization.',
-    tags: ['Salla Platform', 'Store Operations'],
-    href: 'https://salla.sa/AbatRowa',
+    id: 'oud-jassar',
+    title: 'Oud Jassar',
+    subtitle: 'Luxury Fragrance Storefront',
+    description:
+      'Bespoke digital storefront architecture on the Salla platform, featuring luxury fragrance catalog staging, streamlined checkout UX, and custom store configurations.',
+    tags: ['Salla Platform', 'Theme Customization', 'Store Operations'],
+    href: 'https://oudjassar.com',
+    displayUrl: 'oudjassar.com',
   },
   {
     id: 'ghena',
     title: 'GHENA',
-    description: 'E-Commerce Architecture & Digital Storefront Management.',
-    tags: ['Salla Platform', 'Store Operations'],
+    subtitle: 'E-Commerce Architecture & Ops',
+    description:
+      'End-to-end luxury e-commerce operations, automated catalog workflows, custom storefront adjustments, and integrated digital commerce management.',
+    tags: ['Salla Platform', 'Catalog Automation', 'Store Operations'],
     href: 'https://ghena.sa',
-  },
-];
-
-const CASE_STUDIES = [
-  {
-    id: 'ghena-textural',
-    title: 'GHENA - Textural Product Placement',
-    category: 'Commercial Generative Pipeline',
-    imageSrc: '/project-2.jpg',
-    imageAlt: 'GHENA perfume bottle in organic cream studio setup with textural surfaces',
-    imageAlignment: 'left',
-    description:
-      'A specialized generative product placement study crafted for GHENA luxury perfumes. The pipeline establishes an ultra-clean organic cream studio setup featuring natural stone plinths, micro-textured mineral surfaces, and diffuse ambient bounce. By implementing custom negative embedding geometry and multi-stage control masks, the workflow ensures strict bottle typography, cap reflection accuracy, and label material consistency across dozens of high-resolution e-commerce catalog renders.',
-    keyPoints: [
-      'Organic cream studio setup with tactile micro-textures',
-      'Strict product and typography consistency across render batches',
-      'Diffuse ambient lighting optimized for luxury e-commerce staging',
-    ],
-    tags: ['Diffusion Pipeline', 'Studio Staging', 'Product Consistency', 'Catalog Automation'],
+    displayUrl: 'ghena.sa',
   },
   {
-    id: 'ghena-halo',
-    title: 'GHENA - Precision Halo Lighting',
-    category: 'Synthetic Studio Lighting',
-    imageSrc: '/project-1.jpg',
-    imageAlt: 'GHENA perfume bottle with custom precision halo lighting and golden accents',
-    imageAlignment: 'right',
+    id: 'abat-rowa',
+    title: 'Abat Rowa',
+    subtitle: 'Digital Storefront Management',
     description:
-      'An advanced synthetic lighting architecture developed to capture the golden glass nuances of GHENA fragrances. Utilizing a custom generative pipeline tailored for high-dynamic-range reflections, the model orchestrates warm halo rim illumination, crisp specular highlights on golden metallic accents, and nuanced caustic depth on translucent perfume liquid—delivering photorealistic commercial assets without traditional studio setup overhead.',
-    keyPoints: [
-      'Custom generative pipeline engineered for studio lighting control',
-      'Crisp specular reflections on golden metallic cap and label accents',
-      'Warm precision halo backlighting isolating product contours',
-    ],
-    tags: ['Generative Pipeline', 'Halo Lighting', 'Specular Control', 'Commercial Assets'],
-  },
-  {
-    id: 'red-night',
-    title: 'RED NIGHT - Atmospheric Forest Staging',
-    category: 'Cinematic Environment Synthesis',
-    imageSrc: '/project-3.jpg',
-    imageAlt: 'RED NIGHT perfume bottle in moody atmospheric forest staging with volumetric fog',
-    imageAlignment: 'left',
-    description:
-      'A dark, cinematic environment generation framework built for the RED NIGHT edition. The model synthetically generates an immersive, misty forest landscape dominated by dense midnight foliage, volumetric fog scattering, and moody atmospheric lighting. Controlled depth-of-field and silhouette separation place dramatic focus on the hero bottle, demonstrating scalable generative staging for high-impact commercial campaigns.',
-    keyPoints: [
-      'Moody atmospheric lighting with deep volumetric fog dispersal',
-      'Photorealistic dark forest environment generation with depth layering',
-      'Dramatic commercial silhouette separation and product emphasis',
-    ],
-    tags: ['Atmospheric Lighting', 'Dark Forest Staging', 'Volumetric Fog', 'Cinematic AI'],
+      'High-volume digital fashion storefront management, catalog optimization, structured product taxonomy, and conversion flow optimization.',
+    tags: ['Salla Platform', 'Storefront Architecture', 'Conversion Optimization'],
+    href: 'https://salla.sa/AbatRowa',
+    displayUrl: 'salla.sa/AbatRowa',
   },
 ];
 
 export default function WorkPage() {
   return (
-    <div className="flex flex-col gap-16 sm:gap-24">
-      {/* Header Container with True Liquid Glass Refraction */}
-      <section className="p-8 sm:p-12 md:p-14 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center max-w-4xl mx-auto w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black mb-4">
+    <div className="min-h-screen bg-[#f7edd7] text-slate-900 pt-28 sm:pt-36 pb-24 w-full max-w-5xl mx-auto px-5 sm:px-8">
+      {/* Header Section */}
+      <section className="border-b border-black/10 pb-12 sm:pb-16 mb-16 sm:mb-20">
+        <span className="text-xs font-mono font-medium tracking-widest text-slate-500 uppercase block mb-3">
+          Archive &amp; Index
+        </span>
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-4">
           Selected Work
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
-          Web architecture, automated commerce infrastructure, and photorealistic generative AI pipelines
-          engineered for performance, precision, and modern aesthetics.
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
+          High-performance web architecture, corporate digital infrastructure, and scalable e-commerce storefront configurations.
         </p>
       </section>
 
-      {/* PART 1: Web Architecture (Text-Only Glass Cards) */}
-      <section className="flex flex-col gap-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/50 pb-4">
+      {/* SECTION 1: Digital Platforms & Architecture */}
+      <section className="mb-20 sm:mb-24">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-black/10 pb-4 mb-8 sm:mb-12">
           <div>
-            <div className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <Layers className="w-3.5 h-3.5" />
-              <span>Part 1</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b]">
-              Web Architecture
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+              Digital Platforms &amp; Architecture
             </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Custom engineering, high-performance web applications, and corporate platforms.
+            </p>
           </div>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-md">
-            Custom web platforms, corporate showcases, and enterprise digital operations.
-          </p>
+          <span className="text-xs font-mono text-slate-400">01 — Web Engineering</span>
         </div>
 
-        {/* Responsive Grid of Text-Only Glass Cards - 2x2 on Desktop, Stacking Vertically on Mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {WEB_PROJECTS.map((project, idx) => (
+        {/* Minimalist 3-Column Grid without heavy white cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+          {WEB_ENGINEERING_PROJECTS.map((project, idx) => (
             <motion.a
               key={project.id}
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.45,
-                delay: idx * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="group relative flex flex-col justify-between rounded-3xl p-7 sm:p-8 border border-white/65 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/60 hover:border-white/90 hover:shadow-[0_28px_50px_-12px_rgba(15,23,42,0.12),0_0_28px_rgba(56,189,248,0.2),0_0_20px_rgba(236,72,153,0.15)] overflow-hidden cursor-pointer"
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="group flex flex-col justify-between border-b border-black/10 pb-8 hover:border-black/30 transition-colors"
             >
-              {/* Specular Top Reflection Line */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-
               <div>
-                {/* Header with Title and Top-Right Arrow Link Icon */}
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#09090b] group-hover:text-blue-600 transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="p-2.5 rounded-2xl bg-white/60 border border-white/80 text-slate-700 group-hover:text-blue-600 group-hover:bg-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)]">
-                    <ArrowUpRight className="w-5 h-5" />
-                  </div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-mono text-slate-400 font-medium">
+                    0{idx + 1}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
 
-                {/* Project Description */}
-                <p className="text-sm text-slate-600 leading-relaxed font-normal mb-8">
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-black transition-colors mb-1">
+                  {project.title}
+                </h3>
+                <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-4">
+                  {project.subtitle}
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
                   {project.description}
                 </p>
               </div>
 
-              {/* Tags Section */}
-              <div className="pt-6 border-t border-slate-200/50 flex flex-wrap items-center gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white/60 border border-white/80 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div>
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-black/5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 text-[11px] font-mono text-slate-600 bg-black/[0.03] border border-black/10 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-3 text-xs font-mono text-slate-400 group-hover:text-black transition-colors flex items-center gap-1">
+                  <span>↗</span>
+                  <span>{project.displayUrl}</span>
+                </div>
               </div>
             </motion.a>
           ))}
         </div>
       </section>
 
-      {/* PART 2: Generative AI Case Studies (Scrollable Image Layout) */}
-      <section className="flex flex-col gap-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/50 pb-4">
+      {/* SECTION 2: Salla Storefront Configurations */}
+      <section className="mb-20 sm:mb-24">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-black/10 pb-4 mb-8 sm:mb-12">
           <div>
-            <div className="flex items-center gap-2 text-pink-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Part 2</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b]">
-              Generative AI &amp; Commerce Case Studies
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+              Salla Storefront Configurations
             </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              E-commerce architecture, bespoke Salla theme configurations, operations automation, and catalog management.
+            </p>
           </div>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-md">
-            High-fidelity generative pipelines combining studio staging, precise lighting models, and commercial asset consistency.
-          </p>
+          <span className="text-xs font-mono text-slate-400">02 — E-Commerce Systems</span>
         </div>
 
-        {/* Three Large Vertical Glassmorphism Containers - Alternating Left/Right */}
-        <div className="flex flex-col gap-10 lg:gap-14">
-          {CASE_STUDIES.map((study, idx) => {
-            const isImageLeft = study.imageAlignment === 'left';
-            const accentColor = idx % 2 === 0 ? 'text-pink-600' : 'text-blue-600';
-            const dotColor = idx % 2 === 0 ? 'bg-pink-500' : 'bg-blue-500';
-
-            return (
-              <motion.article
-                key={study.id}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{
-                  duration: 0.6,
-                  delay: idx * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group relative rounded-3xl border border-white/70 bg-white/40 backdrop-blur-2xl [box-shadow:0_25px_50px_-12px_rgba(15,23,42,0.1),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] overflow-hidden transition-all duration-500 hover:border-white/90 hover:shadow-[0_30px_60px_-15px_rgba(15,23,42,0.14),0_0_35px_rgba(56,189,248,0.2),0_0_25px_rgba(236,72,153,0.18)]"
-              >
-                {/* Specular Top Reflection Line */}
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-20" />
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px] lg:min-h-[500px]">
-                  {/* Edge-to-Edge Image Column */}
-                  <div
-                    className={`relative min-h-[320px] sm:min-h-[400px] lg:min-h-[500px] overflow-hidden lg:col-span-7 ${
-                      isImageLeft ? 'lg:order-1' : 'lg:order-2'
-                    }`}
-                  >
-                    <img
-                      src={study.imageSrc}
-                      alt={study.imageAlt || study.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-
-                    {/* Subtle Translucent Ambient Overlay */}
-                    <div
-                      className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${
-                        isImageLeft
-                          ? 'lg:bg-gradient-to-r'
-                          : 'lg:bg-gradient-to-l'
-                      } from-slate-950/20 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity`}
-                    />
-                  </div>
-
-                  {/* Case Study Content Column */}
-                  <div
-                    className={`p-8 sm:p-10 lg:p-12 flex flex-col justify-between lg:col-span-5 bg-white/20 backdrop-blur-md ${
-                      isImageLeft ? 'lg:order-2' : 'lg:order-1'
-                    }`}
-                  >
-                    <div>
-                      {/* Category Label */}
-                      <span className={`text-xs font-mono font-bold uppercase tracking-wider ${accentColor} block mb-2`}>
-                        {study.category}
-                      </span>
-
-                      {/* Case Study Title */}
-                      <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#09090b] mb-4 group-hover:text-blue-600 transition-colors">
-                        {study.title}
-                      </h3>
-
-                      {/* Case Study Detailed Copy */}
-                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
-                        {study.description}
-                      </p>
-
-                      {/* Highlights Bullet List */}
-                      <ul className="space-y-2 mb-8">
-                        {study.keyPoints.map((point, pointIdx) => (
-                          <li
-                            key={pointIdx}
-                            className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium"
-                          >
-                            <span className={`w-1.5 h-1.5 rounded-full ${dotColor} mt-2 shrink-0 shadow-xs`} />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Tags Section */}
-                    <div className="pt-6 border-t border-slate-200/50 flex flex-wrap items-center gap-2">
-                      {study.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white/60 border border-white/80 [box-shadow:inset_0_1px_1px_rgba(255,255,255,0.95)] backdrop-blur-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+        {/* Minimalist 3-Column Grid without heavy white cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+          {SALLA_PROJECTS.map((project, idx) => (
+            <motion.a
+              key={project.id}
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="group flex flex-col justify-between border-b border-black/10 pb-8 hover:border-black/30 transition-colors"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-mono text-slate-400 font-medium">
+                    0{idx + 1}
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
-              </motion.article>
-            );
-          })}
+
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-black transition-colors mb-1">
+                  {project.title}
+                </h3>
+                <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-4">
+                  {project.subtitle}
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                  {project.description}
+                </p>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-black/5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 text-[11px] font-mono text-slate-600 bg-black/[0.03] border border-black/10 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-3 text-xs font-mono text-slate-400 group-hover:text-black transition-colors flex items-center gap-1">
+                  <span>↗</span>
+                  <span>{project.displayUrl}</span>
+                </div>
+              </div>
+            </motion.a>
+          ))}
         </div>
       </section>
 
-      {/* Inquiry Callout Container with True Glassmorphism */}
-      <section className="p-8 sm:p-12 rounded-3xl border border-white/70 bg-white/45 backdrop-blur-2xl [box-shadow:0_20px_45px_-12px_rgba(15,23,42,0.08),inset_0_1.5px_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_0_rgba(255,255,255,0.4)] text-center flex flex-col items-center gap-4 max-w-2xl mx-auto w-full relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent z-10" />
-        <h2 className="text-xl sm:text-2xl font-extrabold text-[#09090b]">
+      {/* SECTION 3: Visual Direction & Product Photography */}
+      <section className="mb-20 sm:mb-24">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-black/10 pb-4 mb-8 sm:mb-12">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+              Visual Direction &amp; Product Photography
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Synthetic studio staging, generative commercial assets, and high-fidelity product rendering.
+            </p>
+          </div>
+          <span className="text-xs font-mono text-slate-400">03 — Visual Systems</span>
+        </div>
+
+        {/* Responsive 3-Column Image Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {[
+            {
+              src: '/project-1.jpg',
+              alt: 'GHENA Perfume - Precision Halo Lighting & Golden Accents',
+              caption: 'Precision Halo Lighting',
+              tag: 'Studio Staging',
+            },
+            {
+              src: '/project-2.jpg',
+              alt: 'GHENA Perfume - Textural Cream Mineral Surfaces',
+              caption: 'Textural Product Placement',
+              tag: 'Material Consistency',
+            },
+            {
+              src: '/project-3.jpg',
+              alt: 'RED NIGHT - Atmospheric Forest Staging & Volumetric Fog',
+              caption: 'Atmospheric Forest Staging',
+              tag: 'Cinematic AI',
+            },
+          ].map((item, idx) => (
+            <div key={idx} className="flex flex-col gap-3 group">
+              <div className="aspect-square overflow-hidden rounded-xl bg-black/5 border border-black/10 relative">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span className="font-medium text-slate-800">{item.caption}</span>
+                <span className="text-slate-400">#{item.tag}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Inquiry Callout Section (Standardized 3D dark button bg-[#2a2a2a] text-white rounded-lg, no gradients) */}
+      <section className="border-t border-black/10 pt-16 sm:pt-20 text-center flex flex-col items-center gap-4">
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
           Interested in building something similar?
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 max-w-md">
-          Available for custom web architecture, e-commerce automation, and generative AI production pipelines.
+          Available for custom web architecture, digital platforms, and e-commerce engineering engagements.
         </p>
         <Link
           href="/contact"
-          className="mt-2 flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white liquid-btn-primary active:scale-98"
+          className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#2a2a2a] text-white text-xs sm:text-sm font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all"
         >
           <span>Get in Touch</span>
           <ArrowUpRight className="w-4 h-4" />

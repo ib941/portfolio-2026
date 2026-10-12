@@ -1,7 +1,6 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import AmbientCanvas from '@/components/AmbientCanvas';
 
 export const metadata = {
   title: 'Ibrahim Alkabsi — Creative Web Developer & Systems Architect',
@@ -13,17 +12,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 selection:bg-sky-200 selection:text-sky-900 font-sans antialiased">
-        {/* Ambient liquid lighting refractions */}
-        <AmbientCanvas />
-
-        {/* Persistent floating glassmorphic navbar */}
+      <body className="min-h-screen flex flex-col bg-[#f7edd7] text-slate-900 selection:bg-purple-200 selection:text-purple-900 font-sans antialiased">
+        {/* Persistent floating dark-themed navbar */}
         <Navbar />
 
-        {/* Main Content Area */}
-        <div className="flex-1 pt-28 sm:pt-32 pb-12 w-full max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Main Content Area - strictly warm cream #f7edd7 without gradients */}
+        <main className="flex-1 w-full bg-[#f7edd7]">
           {children}
-        </div>
+        </main>
 
         {/* Minimalist frosted glass footer */}
         <Footer />
