@@ -3,13 +3,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Terminal, Sparkles, AlertCircle } from 'lucide-react';
-
-const SUGGESTED_QUERIES = [
-  'What technical stack does Ibrahim specialize in?',
-  'Tell me about his Salla e-commerce architecture',
-  'How does he bridge code and visual geometry?',
-];
+import { MessageSquare, X, Send, Terminal, AlertCircle } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 function getMessageText(message) {
   if (typeof message.content === 'string' && message.content.length > 0) {
@@ -29,10 +24,16 @@ export default function ChatWidget() {
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const { t, dict, isRTL } = useLanguage();
 
   const { messages, sendMessage, status, error, setMessages } = useChat();
 
   const isGenerating = status === 'streaming' || status === 'submitted';
+  const suggestedQueries = dict?.chat?.suggestions || [
+    'What technical stack does Ibrahim specialize in?',
+    'Tell me about his Salla e-commerce architecture',
+    'How does he bridge code and visual geometry?',
+  ];
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
@@ -108,10 +109,10 @@ export default function ChatWidget() {
                 <div className="w-2.5 h-2.5 bg-emerald-600 rounded-none" />
                 <div className="flex flex-col">
                   <span className="text-xs font-mono font-bold tracking-wider uppercase text-slate-900">
-                    Ibrahim AI Assistant
+                    {t('chat.title')}
                   </span>
                   <span className="text-[10px] font-mono text-slate-500">
-                    Groq • gpt-oss-120b • Architecture
+                    {t('chat.subtitle')}
                   </span>
                 </div>
               </div>
@@ -124,7 +125,7 @@ export default function ChatWidget() {
                     title="Clear Conversation"
                     className="px-2 py-1 text-[10px] font-mono border border-black/15 bg-black/[0.03] text-slate-700 hover:text-black rounded-none cursor-pointer"
                   >
-                    Clear
+                    {t('chat.clear')}
                   </button>
                 )}
                 <button
@@ -145,24 +146,24 @@ export default function ChatWidget() {
                 <div className="border border-black/15 bg-black/[0.03] p-4 rounded-none text-xs text-slate-800">
                   <div className="font-bold font-mono text-slate-900 uppercase tracking-wider mb-1.5 flex items-center gap-2">
                     <Terminal className="w-3.5 h-3.5 text-slate-900" />
-                    <span>Technical Architecture Bot</span>
+                    <span>{t('chat.online')}</span>
                   </div>
                   <p className="leading-relaxed mb-3 text-slate-700">
-                    Welcome. I am Ibrahim&apos;s personal technical assistant. Ask me questions about his Next.js engineering, Salla e-commerce architecture, Python automation pipelines, or visual direction.
+                    {t('chat.welcome')}
                   </p>
 
                   <div className="flex flex-col gap-1.5 pt-2 border-t border-black/10">
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">
-                      Suggested Inquiries:
+                      {t('chat.suggestionsLabel')}
                     </span>
-                    {SUGGESTED_QUERIES.map((query) => (
+                    {suggestedQueries.map((query) => (
                       <button
                         key={query}
                         type="button"
                         onClick={() => handleSendSuggestion(query)}
-                        className="text-left text-[11px] font-mono text-slate-800 bg-white/70 hover:bg-white border border-black/10 px-2.5 py-1.5 rounded-none transition-colors cursor-pointer"
+                        className="text-left rtl:text-right text-[11px] font-mono text-slate-800 bg-white/70 hover:bg-white border border-black/10 px-2.5 py-1.5 rounded-none transition-colors cursor-pointer"
                       >
-                        → {query}
+                        {isRTL ? `← ${query}` : `→ ${query}`}
                       </button>
                     ))}
                   </div>
@@ -180,8 +181,8 @@ export default function ChatWidget() {
                     className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}
                   >
                     {!isUser && (
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-1 ml-0.5">
-                        Assistant
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-1 ml-0.5 rtl:mr-0.5 rtl:ml-0">
+                        {isRTL ? 'المساعد' : 'Assistant'}
                       </span>
                     )}
 
@@ -201,12 +202,12 @@ export default function ChatWidget() {
               {/* Generating / Streaming State */}
               {isGenerating && (
                 <div className="flex flex-col items-start">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-1 ml-0.5">
-                    Assistant
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-1 ml-0.5 rtl:mr-0.5 rtl:ml-0">
+                    {isRTL ? 'المساعد' : 'Assistant'}
                   </span>
                   <div className="bg-white/70 border border-black/15 p-2.5 text-xs rounded-none text-slate-700 font-mono flex items-center gap-2">
                     <span className="inline-block w-2 h-2 bg-slate-900 animate-pulse rounded-none" />
-                    <span>Thinking &amp; streaming...</span>
+                    <span>{t('chat.thinking')}</span>
                   </div>
                 </div>
               )}
@@ -237,7 +238,7 @@ export default function ChatWidget() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Next.js, Salla, systems..."
+                placeholder={t('chat.inputPlaceholder')}
                 disabled={isGenerating}
                 className="flex-1 px-3 py-2.5 text-xs bg-white/80 border border-black/20 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-black rounded-none transition-colors"
               />
@@ -247,8 +248,8 @@ export default function ChatWidget() {
                 disabled={!input.trim() || isGenerating}
                 className="px-4 py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-none shadow-[0_3px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[3px] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:active:translate-y-0 disabled:shadow-[0_3px_0_#1a1a1a]"
               >
-                <span>Send</span>
-                <Send className="w-3.5 h-3.5" />
+                <span>{t('chat.send')}</span>
+                <Send className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
               </button>
             </form>
           </motion.div>

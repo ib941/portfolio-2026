@@ -3,9 +3,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Copy, Check, Mail, Phone, Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
+  const { locale, t, isRTL } = useLanguage();
+
   const emailAddress = 'aalkbsy956@gmail.com';
   const phoneNumber = '0534657849';
   const instagramHandle = '@ibr._19';
@@ -34,20 +37,20 @@ export default function ContactPage() {
 
   const contactChannels = [
     {
-      label: 'Email',
+      label: t('contact.channels.email'),
       value: emailAddress,
       href: `mailto:${emailAddress}`,
       icon: Mail,
       isAction: true,
     },
     {
-      label: 'Phone',
+      label: t('contact.channels.phone'),
       value: phoneNumber,
       href: `tel:${phoneNumber}`,
       icon: Phone,
     },
     {
-      label: 'Instagram',
+      label: t('contact.channels.instagram'),
       value: instagramHandle,
       href: 'https://instagram.com/ibr._19',
       icon: Instagram,
@@ -59,13 +62,13 @@ export default function ContactPage() {
       {/* Header Section */}
       <section className="border-b border-black/10 pb-12 sm:pb-16 mb-12 sm:mb-16">
         <span className="text-xs font-mono font-medium tracking-widest text-slate-500 uppercase block mb-3">
-          Direct Inquiry
+          {t('contact.header.tag')}
         </span>
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
-          Let&apos;s Build Something Sharp.
+          {t('contact.header.title')}
         </h1>
         <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal">
-          Ready to engineer a new platform or elevate your brand&apos;s visual architecture? Reach out directly.
+          {t('contact.header.subtext')}
         </p>
       </section>
 
@@ -93,6 +96,7 @@ export default function ContactPage() {
                     href={item.href}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    dir="ltr"
                     className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 hover:text-black transition-colors"
                   >
                     {item.value}
@@ -100,7 +104,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pl-14 sm:pl-0">
+              <div className="flex items-center gap-3 pl-14 sm:pl-0 rtl:pr-14 rtl:sm:pr-0">
                 {item.isAction && (
                   <button
                     type="button"
@@ -110,12 +114,12 @@ export default function ContactPage() {
                     {copied ? (
                       <>
                         <Check className="w-3.5 h-3.5" />
-                        <span>Copied</span>
+                        <span>{t('contact.channels.copied')}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5" />
-                        <span>Copy</span>
+                        <span>{t('contact.channels.copy')}</span>
                       </>
                     )}
                   </button>
@@ -127,8 +131,8 @@ export default function ContactPage() {
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="px-4 py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>Open</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <span>{t('contact.channels.open')}</span>
+                  <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-[-90deg]' : ''}`} />
                 </a>
               </div>
             </motion.div>
@@ -138,8 +142,8 @@ export default function ContactPage() {
 
       {/* Structural Availability Note */}
       <section className="mt-16 sm:mt-20 pt-8 border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-slate-500 gap-2">
-        <span>Available for technical consulting &amp; custom builds</span>
-        <span>Response within 24 hours</span>
+        <span>{t('contact.footer.availability')}</span>
+        <span>{t('contact.footer.response')}</span>
       </section>
     </div>
   );

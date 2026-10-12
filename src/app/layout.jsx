@@ -1,4 +1,5 @@
 import './globals.css';
+import { LanguageProvider } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
@@ -14,19 +15,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen flex flex-col bg-[#f7edd7] text-slate-900 selection:bg-purple-200 selection:text-purple-900 font-sans antialiased">
-        {/* Persistent floating dark-themed navbar */}
-        <Navbar />
+        <LanguageProvider>
+          {/* Persistent floating dark-themed navbar */}
+          <Navbar />
 
-        {/* Main Content Area - strictly warm cream #f7edd7 without gradients */}
-        <main className="flex-1 w-full bg-[#f7edd7]">
-          {children}
-        </main>
+          {/* Main Content Area - strictly warm cream #f7edd7 without gradients */}
+          <main className="flex-1 w-full bg-[#f7edd7]">
+            {children}
+          </main>
 
-        {/* Persistent AI Chatbot Widget */}
-        <ChatWidget />
+          {/* Persistent AI Chatbot Widget */}
+          <ChatWidget />
 
-        {/* Minimalist footer */}
-        <Footer />
+          {/* Minimalist footer */}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

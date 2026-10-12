@@ -1,0 +1,257 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "home": {
+    "hero": {
+      "headline": "Ibrahim — Creative Web Developer & Systems Architect",
+      "subheadline": "Engineering high-performance web applications, automated commerce systems, and fluid digital experiences.",
+      "exploreWork": "Explore My Work",
+      "getInTouch": "Get in Touch"
+    },
+    "metrics": {
+      "exp": {
+        "value": "5+ Years",
+        "label": "Engineering Experience",
+        "sub": "Production web apps"
+      },
+      "typeSafe": {
+        "value": "100%",
+        "label": "Type-Safe & Scalable",
+        "sub": "Clean architecture"
+      },
+      "fps": {
+        "value": "60fps",
+        "label": "Motion Dynamics",
+        "sub": "Fluid interactions"
+      },
+      "speed": {
+        "value": "<100ms",
+        "label": "Time to Interactive",
+        "sub": "Optimized performance"
+      }
+    },
+    "engineering": {
+      "heading": "Crafted with modern frontend precision",
+      "subheading": "Combining scalable system architecture with polished, responsive user interfaces.",
+      "card1": {
+        "title": "Modern Component Architecture",
+        "description": "Building scalable, maintainable applications with React 19, Next.js App Router, and TypeScript. Modular design systems that grow with your product.",
+        "badge": "Next.js & React"
+      },
+      "card2": {
+        "title": "Fluid Micro-Interactions",
+        "description": "Intuitive layout animations, subtle state transitions, and light-themed liquid glass surfaces that make software feel responsive and enjoyable to use.",
+        "badge": "Framer Motion & Tailwind"
+      },
+      "card3": {
+        "title": "Automated Commerce & Systems",
+        "description": "Designing resilient commerce flows, automated APIs, and operations workflows that run reliably at scale with minimum latency.",
+        "badge": "Python & API Workflows"
+      }
+    },
+    "featured": {
+      "badge": "Featured Project",
+      "title": "Z Fakhama — Custom Web Architecture",
+      "description": "Custom web architecture and high-performance user interface engineering built for speed, responsiveness, and visual distinction.",
+      "tech": "Next.js • React • Tailwind CSS",
+      "button": "Explore My Work"
+    }
+  },
+  "work": {
+    "header": {
+      "tag": "Archive & Index",
+      "title": "Selected Work",
+      "description": "High-performance web architecture, corporate digital infrastructure, and scalable e-commerce storefront configurations."
+    },
+    "section1": {
+      "title": "Digital Platforms & Architecture",
+      "description": "Custom engineering, high-performance web applications, and corporate platforms.",
+      "index": "01 — Web Engineering",
+      "projects": [
+        {
+          "title": "Shourna",
+          "subtitle": "Corporate & Industrial Platform",
+          "description": "Custom multi-language industrial web infrastructure featuring bilingual localized routing (Arabic & English), responsive service directories, and high-performance asset delivery.",
+          "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS"],
+          "url": "shourna.com"
+        },
+        {
+          "title": "Z Fakhama",
+          "subtitle": "Custom Web Architecture",
+          "description": "High-performance digital presence engineered for fast time-to-interactive, fluid micro-interactions, clean system architecture, and visual distinction.",
+          "tags": ["Next.js", "React", "Tailwind CSS", "Frontend Arch"],
+          "url": "zfakhama.com"
+        },
+        {
+          "title": "GTF Plastics",
+          "subtitle": "Industrial B2B Showcase",
+          "description": "Corporate B2B web infrastructure and manufacturing showcase engineered for high responsiveness, structured product presentation, and enterprise branding.",
+          "tags": ["Next.js", "React", "Tailwind CSS", "B2B Enterprise"],
+          "url": "gtf-plastics.com"
+        }
+      ]
+    },
+    "section2": {
+      "title": "Salla Storefront Configurations",
+      "description": "E-commerce architecture, bespoke Salla theme configurations, operations automation, and catalog management.",
+      "index": "02 — E-Commerce Systems",
+      "projects": [
+        {
+          "title": "Oud Jassar",
+          "subtitle": "Luxury Fragrance Storefront",
+          "description": "Bespoke digital storefront architecture on the Salla platform, featuring luxury fragrance catalog staging, streamlined checkout UX, and custom store configurations.",
+          "tags": ["Salla Platform", "Theme Customization", "Store Operations"],
+          "url": "oudjassar.com"
+        },
+        {
+          "title": "GHENA",
+          "subtitle": "E-Commerce Architecture & Ops",
+          "description": "End-to-end luxury e-commerce operations, automated catalog workflows, custom storefront adjustments, and integrated digital commerce management.",
+          "tags": ["Salla Platform", "Catalog Automation", "Store Operations"],
+          "url": "ghena.sa"
+        },
+        {
+          "title": "Abat Rowa",
+          "subtitle": "Digital Storefront Management",
+          "description": "High-volume digital fashion storefront management, catalog optimization, structured product taxonomy, and conversion flow optimization.",
+          "tags": ["Salla Platform", "Storefront Architecture", "Conversion Optimization"],
+          "url": "salla.sa/AbatRowa"
+        }
+      ]
+    },
+    "section3": {
+      "title": "Visual Direction & Product Photography",
+      "description": "Synthetic studio staging, generative commercial assets, and high-fidelity product rendering.",
+      "index": "03 — Visual Systems",
+      "items": [
+        {
+          "caption": "Precision Halo Lighting",
+          "tag": "Studio Staging"
+        },
+        {
+          "caption": "Textural Product Placement",
+          "tag": "Material Consistency"
+        },
+        {
+          "caption": "Atmospheric Forest Staging",
+          "tag": "Cinematic AI"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Interested in building something similar?",
+      "description": "Available for custom web architecture, digital platforms, and e-commerce engineering engagements.",
+      "button": "Get in Touch"
+    }
+  },
+  "about": {
+    "header": {
+      "tag": "Profile & Manifesto",
+      "title": "Bridging Code and Visual Geometry.",
+      "manifesto": "Operating at the exact intersection of technical architecture and high-end visual design. My workflow combines robust web development in Next.js and Python with advanced graphic execution and cutting-edge AI tools. Whether it is configuring a complex e-commerce ecosystem, deploying a sleek progressive web app, or executing studio product photography, the philosophy remains the same: strip away the clutter, avoid soft edges, and build digital experiences anchored in strict architectural geometry."
+    },
+    "section1": {
+      "title": "Technical Competencies",
+      "description": "Core technical disciplines spanning web architecture, headless automation, and commerce systems.",
+      "index": "01 — Capabilities",
+      "skills": [
+        {
+          "category": "01 / Frontend Architecture",
+          "title": "Next.js & React Engineering",
+          "description": "Engineered for modularity, sub-second route transitions, and responsive scalability using React 19 and Next.js 15 App Router.",
+          "tags": ["React 19", "Next.js App Router", "TypeScript", "SSR / SSG", "Tailwind CSS"]
+        },
+        {
+          "category": "02 / Systems & Automation",
+          "title": "Python Scripting & Task Runners",
+          "description": "Building headless background task runners, automated media generation pipelines, asynchronous batch operations, and system daemons.",
+          "tags": ["Python 3", "AsyncIO", "Data Pipelines", "Headless Workflows", "Automation"]
+        },
+        {
+          "category": "03 / Commerce Operations",
+          "title": "Salla API & E-Commerce Logic",
+          "description": "End-to-end commerce automation, real-time Salla webhooks, catalog synchronization, and tailored storefront operations architecture.",
+          "tags": ["Salla Platform", "Webhooks", "Theme Customization", "Catalog Automation"]
+        },
+        {
+          "category": "04 / Visual Execution",
+          "title": "UI Architecture & Generative Media",
+          "description": "Precision design systems, strict geometric typography, studio-grade commercial product rendering, and fluid micro-interactions.",
+          "tags": ["Design Systems", "Generative Media", "Visual Direction", "Geometric Layouts"]
+        }
+      ]
+    },
+    "section2": {
+      "title": "Professional Timeline",
+      "description": "Hands-on operational and engineering background across commercial ecosystems.",
+      "index": "02 — Experience",
+      "timeline": [
+        {
+          "period": "2025 — Present",
+          "role": "Internal Visual & E-Commerce Solutions Specialist",
+          "company": "GHENA Luxury Perfumes",
+          "description": "Directing end-to-end digital operations, including Salla storefront management, AI-driven commercial media generation, visual brand architecture, and targeted marketing campaign execution."
+        },
+        {
+          "period": "2024 — Present",
+          "role": "Front-End Web Developer & Systems Architect",
+          "company": "Independent / Freelance",
+          "description": "Architecting and deploying responsive, high-performance web applications and custom client platforms utilizing Next.js, React, Tailwind CSS, and Python automation scripts."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Interested in working together?",
+      "description": "Available for custom web architecture, e-commerce automation, and full-stack development engagements.",
+      "button": "Get in Touch"
+    }
+  },
+  "contact": {
+    "header": {
+      "tag": "Direct Inquiry",
+      "title": "Let's Build Something Sharp.",
+      "subtext": "Ready to engineer a new platform or elevate your brand's visual architecture? Reach out directly."
+    },
+    "channels": {
+      "email": "Email",
+      "phone": "Phone",
+      "instagram": "Instagram",
+      "copy": "Copy",
+      "copied": "Copied",
+      "open": "Open"
+    },
+    "footer": {
+      "availability": "Available for technical consulting & custom builds",
+      "response": "Response within 24 hours"
+    }
+  },
+  "footer": {
+    "name": "Ibrahim Alkabsi",
+    "tagline": "Creative Web Developer & Systems Architect specializing in high-performance web applications and fluid digital experiences.",
+    "backToTop": "Back to top",
+    "copyright": "Ibrahim Alkabsi. All rights reserved.",
+    "status": "Available for hire & consulting",
+    "stack": "Next.js & Tailwind CSS"
+  },
+  "chat": {
+    "title": "Ibrahim AI Assistant",
+    "subtitle": "Groq • gpt-oss-120b • Architecture",
+    "online": "Technical Architecture Bot",
+    "welcome": "Welcome. I am Ibrahim's personal technical assistant. Ask me questions about his Next.js engineering, Salla e-commerce architecture, Python automation pipelines, or visual direction.",
+    "suggestionsLabel": "Suggested Inquiries:",
+    "suggestions": [
+      "What technical stack does Ibrahim specialize in?",
+      "Tell me about his Salla e-commerce architecture",
+      "How does he bridge code and visual geometry?"
+    ],
+    "inputPlaceholder": "Ask about Next.js, Salla, systems...",
+    "send": "Send",
+    "thinking": "Thinking & streaming...",
+    "clear": "Clear"
+  }
+}
