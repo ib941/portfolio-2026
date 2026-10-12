@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 
 export const metadata = {
   title: 'Ibrahim Alkabsi — Creative Web Developer & Systems Architect',
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
-        {/* Minimalist frosted glass footer */}
+        {/* Persistent AI Chatbot Widget */}
+        <ChatWidget />
+
+        {/* Minimalist footer */}
         <Footer />
       </body>
     </html>
