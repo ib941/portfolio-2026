@@ -111,7 +111,7 @@ export default function ChatWidget() {
                     Ibrahim AI Assistant
                   </span>
                   <span className="text-[10px] font-mono text-slate-500">
-                    Groq • Llama 3.3 • Architecture
+                    Groq • gpt-oss-120b • Architecture
                   </span>
                 </div>
               </div>

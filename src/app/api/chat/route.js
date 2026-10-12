@@ -29,7 +29,7 @@ export async function POST(req) {
     const modelMessages = await convertToModelMessages(normalizedMessages);
 
     const result = streamText({
-      model: groq('llama-3.3-70b-versatile'),
+      model: groq('gpt-oss-120b'),
       system:
         "You are the personal technical assistant for Ibrahim, a Creative Web Developer and Systems Architect. Answer questions about his Next.js development, Salla e-commerce architecture, and visual design skills concisely and professionally.",
       messages: modelMessages,
