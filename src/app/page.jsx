@@ -22,32 +22,48 @@ export default function HomePage() {
     <div className="flex flex-col">
       {/* Full-Screen Hero Section with Background Video */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Full-screen Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="/Pixel_art_creative_workspace_ani…_20261012170114.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="/Pixel_art_creative_workspace_ani._20261012170114.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="/public/Pixel_art_creative_workspace_ani…_20261012170114.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="/Pixel_art_creative_workspace_ani_20261012170114.mp4"
-            type="video/mp4"
-          />
-        </video>
+        {/* Background Video Layer: Responsive mobile and desktop videos */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none">
+          {/* Mobile Video: Vertical aspect ratio for phone screens */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="block md:hidden w-full h-full object-cover"
+          >
+            <source src="/hero-video-phone.mp4" type="video/mp4" />
+            <source src="/public/hero-video-phone.mp4" type="video/mp4" />
+          </video>
+
+          {/* Desktop Video: Widescreen pixel art workspace animation */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="hidden md:block w-full h-full object-cover"
+          >
+            <source
+              src="/Pixel_art_creative_workspace_ani…_20261012170114.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="/Pixel_art_creative_workspace_ani._20261012170114.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="/public/Pixel_art_creative_workspace_ani…_20261012170114.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="/Pixel_art_creative_workspace_ani_20261012170114.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
 
         {/* Dark overlay over the video */}
         <div
