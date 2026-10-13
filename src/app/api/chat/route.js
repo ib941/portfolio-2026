@@ -132,6 +132,13 @@ export async function POST(req) {
       system:
         "You are the personal technical assistant for Ibrahim, a Creative Web Developer and Systems Architect. Answer questions about his Next.js development, Salla e-commerce architecture, and visual design skills concisely and professionally. CRITICAL: DO NOT output any internal thinking, thought process, or monologue. Never explain what the user just said. Output ONLY the final, direct answer to the user.",
       messages: modelMessages,
+      reasoningEffort: 'low',
+      providerOptions: {
+        groq: {
+          reasoningEffort: 'low',
+          reasoningFormat: 'hidden',
+        },
+      },
     });
 
     let rawResponse;
