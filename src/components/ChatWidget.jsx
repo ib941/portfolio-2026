@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Terminal, AlertCircle } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { useLanguage } from '@/context/LanguageContext';
 
 function getMessageText(message) {
@@ -17,6 +19,14 @@ function getMessageText(message) {
       .join('');
   }
   return '';
+}
+
+function cleanMessageText(text) {
+  if (!text) return '';
+  // Strip completed or in-progress <think> blocks
+  let cleaned = text.replace(/<think>[\s\S]*?<\/think>/gi, '');
+  cleaned = cleaned.replace(/<think>[\s\S]*/gi, '');
+  return cleaned.trim();
 }
 
 export default function ChatWidget() {
@@ -101,7 +111,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[400px] h-[520px] max-h-[80vh] flex flex-col rounded-none border border-black/20 bg-[#f7edd7] shadow-2xl overflow-hidden"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[540px] max-h-[80vh] flex flex-col rounded-none border border-black/20 bg-[#f7edd7] shadow-2xl overflow-hidden"
           >
             {/* Header Bar */}
             <div className="border-b border-black/15 bg-black/[0.04] px-4 py-3 flex items-center justify-between">
@@ -173,7 +183,13 @@ export default function ChatWidget() {
               {/* Message Bubbles */}
               {messages.map((message) => {
                 const isUser = message.role === 'user';
-                const textContent = getMessageText(message);
+                const rawText = getMessageText(message);
+                const textContent = isUser ? rawText : cleanMessageText(rawText);
+
+                // If content is empty (e.g. was only a <think> block that got cleaned during streaming)
+                if (!isUser && !textContent && isGenerating) {
+                  return null;
+                }
 
                 return (
                   <div
@@ -189,11 +205,52 @@ export default function ChatWidget() {
                     <div
                       className={`p-3 text-xs rounded-none ${
                         isUser
-                          ? 'max-w-[85%] bg-[#2a2a2a] text-white shadow-xs'
-                          : 'max-w-[90%] bg-white/80 border border-black/15 text-slate-900 shadow-xs leading-relaxed whitespace-pre-wrap'
+                          ? 'max-w-[85%] bg-[#2a2a2a] text-white shadow-xs whitespace-pre-wrap'
+                          : 'max-w-[92%] bg-white/85 border border-black/15 text-slate-900 shadow-xs'
                       }`}
                     >
-                      {textContent}
+                      {isUser ? (
+                        textContent
+                      ) : (
+                        <div className="prose-chat text-xs leading-relaxed break-words">
+                          <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={{
+                              table: ({ node, ...props }) => (
+                                <div className="overflow-x-auto my-2.5 border border-black/15 bg-white/50">
+                                  <table className="min-w-full text-[11px] border-collapse" {...props} />
+                                </div>
+                              ),
+                              thead: ({ node, ...props }) => <thead className="bg-black/5" {...props} />,
+                              th: ({ node, ...props }) => (
+                                <th className="border-b border-black/15 px-2.5 py-1.5 font-bold text-left rtl:text-right text-[11px]" {...props} />
+                              ),
+                              td: ({ node, ...props }) => (
+                                <td className="border-b border-black/10 px-2.5 py-1.5 text-[11px]" {...props} />
+                              ),
+                              ul: ({ node, ...props }) => <ul className="list-disc list-inside my-1.5 space-y-1" {...props} />,
+                              ol: ({ node, ...props }) => <ol className="list-decimal list-inside my-1.5 space-y-1" {...props} />,
+                              li: ({ node, ...props }) => <li className="my-0.5 leading-relaxed" {...props} />,
+                              p: ({ node, ...props }) => <p className="mb-2 last:mb-0 leading-relaxed" {...props} />,
+                              strong: ({ node, ...props }) => <strong className="font-bold text-slate-950" {...props} />,
+                              em: ({ node, ...props }) => <em className="italic" {...props} />,
+                              code: ({ node, inline, ...props }) =>
+                                inline ? (
+                                  <code className="bg-black/5 px-1 py-0.5 font-mono text-[11px] text-slate-800" {...props} />
+                                ) : (
+                                  <pre className="bg-black/5 p-2 overflow-x-auto my-1.5 font-mono text-[11px] border border-black/15">
+                                    <code {...props} />
+                                  </pre>
+                                ),
+                              a: ({ node, ...props }) => (
+                                <a className="underline hover:text-black font-medium" target="_blank" rel="noopener noreferrer" {...props} />
+                              ),
+                            }}
+                          >
+                            {textContent}
+                          </ReactMarkdown>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );

@@ -31,7 +31,7 @@ export async function POST(req) {
     const result = streamText({
       model: groq('openai/gpt-oss-120b'),
       system:
-        "You are the personal technical assistant for Ibrahim, a Creative Web Developer and Systems Architect. Answer questions about his Next.js development, Salla e-commerce architecture, and visual design skills concisely and professionally.",
+        "You are the personal technical assistant for Ibrahim, a Creative Web Developer and Systems Architect. Answer questions about his Next.js development, Salla e-commerce architecture, and visual design skills concisely and professionally. Strictly output only the direct final answer. Do not include any internal thinking process, reasoning steps, or <think> tags in your output.",
       messages: modelMessages,
     });
 
