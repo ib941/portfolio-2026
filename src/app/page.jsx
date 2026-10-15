@@ -73,12 +73,16 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-5xl mx-auto pt-32 pb-20 w-full">
+
+          {/* Soft vignette/radial drop-shadow behind typography for legibility */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.5)_0%,_transparent_70%)] blur-2xl -z-10" aria-hidden="true" />
+
           {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.12] mb-6 max-w-4xl drop-shadow-md"
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.12] mb-6 max-w-4xl drop-shadow-lg"
           >
             {t('home.hero.headline')}
           </motion.h1>
@@ -88,7 +92,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-base sm:text-xl text-slate-100 font-normal leading-relaxed max-w-2xl mb-10 drop-shadow-sm"
+            className="text-base sm:text-xl text-slate-100 font-normal leading-relaxed max-w-2xl mb-10 drop-shadow-md"
           >
             {t('home.hero.subheadline')}
           </motion.p>
@@ -102,7 +106,7 @@ export default function HomePage() {
           >
             <Link
               href={`/${locale}/work`}
-              className="group relative flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#2a2a2a] text-white text-sm font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all tracking-wide"
+              className="group relative flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#2a2a2a] text-white text-sm font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] active:scale-95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.3),_0_4px_0_#1a1a1a] border border-transparent tracking-wide"
             >
               <span>{t('home.hero.exploreWork')}</span>
               <ArrowIcon className={`w-4 h-4 transition-transform ${isRTL ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
@@ -110,7 +114,7 @@ export default function HomePage() {
 
             <Link
               href={`/${locale}/contact`}
-              className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#2a2a2a] text-white text-sm font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all tracking-wide"
+              className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#2a2a2a] text-white text-sm font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] active:scale-95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.3),_0_4px_0_#1a1a1a] border border-transparent tracking-wide"
             >
               <span>{t('home.hero.getInTouch')}</span>
             </Link>
@@ -249,7 +253,7 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                   <Link
                     href={`/${locale}/work`}
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all tracking-wide"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] active:scale-95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.3),_0_4px_0_#1a1a1a] border border-transparent tracking-wide"
                   >
                     <span>{t('home.featured.button')}</span>
                     <ArrowIcon className="w-4 h-4" />
