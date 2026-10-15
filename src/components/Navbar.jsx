@@ -54,7 +54,7 @@ export default function Navbar() {
       <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav
           aria-label="Main Navigation"
-          className="pointer-events-auto transition-all duration-300 rounded-2xl flex items-center justify-between gap-3 sm:gap-5 px-4 sm:px-5 py-2.5 bg-white/20 backdrop-blur-md border border-black/10 shadow-sm"
+          className="pointer-events-auto transition-all duration-300 rounded-2xl flex items-center justify-between gap-3 sm:gap-5 px-4 sm:px-5 py-2.5 bg-white/20 backdrop-blur-md border border-white/30 shadow-sm"
         >
           {/* Main Logo: Ibrahim Alkabsi */}
           <Link
@@ -79,12 +79,17 @@ export default function Navbar() {
                 <Link
                   key={item.key}
                   href={item.path}
-                  className={`relative px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all duration-200 flex items-center gap-1.5 ${
+                  className={`group relative px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all duration-300 ease-out flex items-center gap-1.5 ${
                     isActive
                       ? 'text-black font-semibold'
-                      : 'text-slate-700 hover:text-black hover:bg-black/5'
+                      : 'text-slate-700 hover:text-black'
                   }`}
                 >
+                  {/* Subtle rounded highlight indicator behind hovered link */}
+                  {!isActive && (
+                    <div className="absolute inset-0 rounded-lg bg-black/5 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out -z-10" />
+                  )}
+
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
@@ -97,8 +102,8 @@ export default function Navbar() {
                     />
                   )}
                   <Icon
-                    className={`w-3.5 h-3.5 ${
-                      isActive ? 'text-black' : 'text-slate-500'
+                    className={`w-3.5 h-3.5 transition-colors duration-300 ${
+                      isActive ? 'text-black' : 'text-slate-500 group-hover:text-black'
                     }`}
                   />
                   <span>{item.name}</span>
@@ -115,7 +120,7 @@ export default function Navbar() {
               onClick={toggleLanguage}
               aria-label="Toggle language between English and Arabic"
               title={locale === 'en' ? 'التحويل إلى العربية' : 'Switch to English'}
-              className="flex items-center justify-center px-3 py-2 bg-[#2a2a2a] text-white text-xs font-mono font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all cursor-pointer select-none"
+              className="flex items-center justify-center px-3 py-2 bg-[#2a2a2a] text-white text-xs font-mono font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] active:scale-95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.3),_0_4px_0_#1a1a1a] border border-transparent cursor-pointer select-none"
             >
               <span className={locale === 'en' ? 'text-white font-bold' : 'text-slate-400'}>EN</span>
               <span className="text-slate-500 mx-1">/</span>
@@ -125,7 +130,7 @@ export default function Navbar() {
             {/* Desktop Action Button */}
             <Link
               href={`/${locale}/contact`}
-              className="flex items-center gap-1.5 px-4 py-2 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all"
+              className="flex items-center gap-1.5 px-4 py-2 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] active:scale-95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.3),_0_4px_0_#1a1a1a] border border-transparent"
             >
               <span>{t('nav.getInTouch')}</span>
               <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-[-90deg]' : ''}`} />
@@ -191,7 +196,7 @@ export default function Navbar() {
               <div className="pt-2 mt-1 border-t border-black/10 flex flex-col gap-2">
                 <Link
                   href={`/${locale}/contact`}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] transition-all"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#2a2a2a] text-white text-xs font-medium rounded-lg shadow-[0_4px_0_#1a1a1a] active:shadow-[0_0px_0_#1a1a1a] active:translate-y-[4px] active:scale-95 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.3),_0_4px_0_#1a1a1a] border border-transparent"
                 >
                   <span>{t('nav.getInTouch')}</span>
                   <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-[-90deg]' : ''}`} />
