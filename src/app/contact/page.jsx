@@ -7,7 +7,8 @@ import { useLanguage } from '@/context/LanguageContext';
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);
-  const { locale, t, isRTL } = useLanguage();
+  const [copyError, setCopyError] = useState(false);
+  const { t, isRTL } = useLanguage();
 
   const emailAddress = 'aalkbsy956@gmail.com';
   const phoneNumber = '0534657849';
@@ -25,13 +26,15 @@ export default function ContactPage() {
         document.body.appendChild(textArea);
         textArea.focus();
         textArea.select();
-        document.execCommand('copy');
+        const successful = document.execCommand('copy');
         document.body.removeChild(textArea);
+        if (!successful) throw new Error('Copy unavailable');
       }
+      setCopyError(false);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
+    } catch {
+      setCopyError(true);
     }
   };
 
@@ -79,7 +82,7 @@ export default function ContactPage() {
           return (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: idx * 0.1 }}
               className="py-8 sm:py-10 border-b border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
@@ -89,7 +92,7 @@ export default function ContactPage() {
                   <Icon className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-400 font-medium block">
+                  <span className="text-xs font-mono text-slate-500 font-medium block">
                     {item.label}
                   </span>
                   <a
@@ -104,7 +107,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pl-14 sm:pl-0 rtl:pr-14 rtl:sm:pr-0">
+              <div className="flex items-center gap-3 ps-14 sm:ps-0">
                 {item.isAction && (
                   <button
                     type="button"
@@ -140,6 +143,7 @@ export default function ContactPage() {
         })}
       </section>
 
+      <p role="status" className="mt-4 text-sm text-slate-700">{copyError ? (isRTL ? 'تعذر النسخ. يمكنك تحديد البريد ونسخه يدوياً.' : 'Could not copy. Select the email address to copy it manually.') : copied ? t('contact.channels.copied') : ''}</p>
       {/* Structural Availability Note */}
       <section className="mt-16 sm:mt-20 pt-8 border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono text-slate-500 gap-2">
         <span>{t('contact.footer.availability')}</span>

@@ -13,28 +13,6 @@
       "exploreWork": "استكشف أعمالي",
       "getInTouch": "تواصل معي"
     },
-    "metrics": {
-      "exp": {
-        "value": "+5 سنوات",
-        "label": "خبرة هندسية",
-        "sub": "تطبيقات ويب إنتاجية"
-      },
-      "typeSafe": {
-        "value": "100%",
-        "label": "أنظمة موثوقة وقابلة للتوسع",
-        "sub": "معمارية برمجية متماسكة"
-      },
-      "fps": {
-        "value": "60fps",
-        "label": "حركة ديناميكية سلسة",
-        "sub": "تفاعلات فورية ودقيقة"
-      },
-      "speed": {
-        "value": "<100ms",
-        "label": "سرعة استجابة وتفاعل",
-        "sub": "أداء محسّن بالكامل"
-      }
-    },
     "engineering": {
       "heading": "صُممت بدقة هندسية متطورة للواجهات",
       "subheading": "الجمع بين معمارية الأنظمة القابلة للتوسع وواجهات المستخدم المتجاوبة والمتقنة.",
@@ -77,22 +55,40 @@
           "title": "شورنا (Shourna)",
           "subtitle": "منصة صناعية ومؤسسية",
           "description": "بنية تحتية صناعية متعددة اللغات تدعم التوجيه ثنائي اللغة (عربي وإنجليزي)، وفهارس خدمات متجاوبة، وتوصيل أصول فائق السرعة.",
-          "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS"],
-          "url": "shourna.com"
+          "tags": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "Tailwind CSS"
+          ],
+          "url": "shourna.com",
+          "id": "shourna"
         },
         {
           "title": "Z Fakhama",
           "subtitle": "معمارية ويب مخصصة",
           "description": "تواجد رقمي عالي الأداء مهندس لسرعة الاستجابة، وتفاعلات دقيقة سلسة، ومعمارية نظام نقية، وتميز بصري.",
-          "tags": ["Next.js", "React", "Tailwind CSS", "Frontend Arch"],
-          "url": "zfakhama.com"
+          "tags": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "Frontend Arch"
+          ],
+          "url": "zfakhama.com",
+          "id": "zfakhama"
         },
         {
           "title": "GTF Plastics",
           "subtitle": "منصة B2B صناعية متقدمة",
           "description": "بنية ويب B2B ومعرض تصنيع مهندس للمرونة العالية، وعرض منظم للمنتجات، وهوية مؤسسية متميزة.",
-          "tags": ["Next.js", "React", "Tailwind CSS", "B2B Enterprise"],
-          "url": "gtf-plastics.com"
+          "tags": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "B2B Enterprise"
+          ],
+          "url": "gtf-plastics.com",
+          "id": "gtf-plastics"
         }
       ]
     },
@@ -105,22 +101,37 @@
           "title": "عود جسار (Oud Jassar)",
           "subtitle": "متجر عطور فاخرة",
           "description": "معمارية متجر رقمي مخصصة على منصة سلة، تشمل إعداد كتالوج العطور الفاخرة، وتجربة دفع مبسطة، وتخصيص متقدم للمتجر.",
-          "tags": ["Salla Platform", "Theme Customization", "Store Operations"],
-          "url": "oudjassar.com"
+          "tags": [
+            "Salla Platform",
+            "Theme Customization",
+            "Store Operations"
+          ],
+          "url": "oudjassar.com",
+          "id": "oud-jassar"
         },
         {
           "title": "غنى (GHENA)",
           "subtitle": "معمارية وعمليات التجارة الإلكترونية",
           "description": "إدارة شاملة لعمليات التجارة الإلكترونية الفاخرة، تدفقات عمل الكتالوج المؤتمتة، تعديلات المتجر المخصصة، وإدارة التجارة الرقمية.",
-          "tags": ["Salla Platform", "Catalog Automation", "Store Operations"],
-          "url": "ghena.sa"
+          "tags": [
+            "Salla Platform",
+            "Catalog Automation",
+            "Store Operations"
+          ],
+          "url": "ghena.sa",
+          "id": "ghena"
         },
         {
           "title": "عبايات روعة (Abat Rowa)",
           "subtitle": "إدارة متجر أزياء رقمي",
           "description": "إدارة متجر أزياء عالي الإقبال، تحسين الكتالوج، تصنيف دقيق للمنتجات، وتحسين مسارات التحويل والطلب.",
-          "tags": ["Salla Platform", "Storefront Architecture", "Conversion Optimization"],
-          "url": "salla.sa/AbatRowa"
+          "tags": [
+            "Salla Platform",
+            "Storefront Architecture",
+            "Conversion Optimization"
+          ],
+          "url": "salla.sa/AbatRowa",
+          "id": "abat-rowa"
         }
       ]
     },
@@ -131,15 +142,18 @@
       "items": [
         {
           "caption": "إضاءة هالة دقيقة",
-          "tag": "تنسيق استوديو"
+          "tag": "تنسيق استوديو",
+          "id": "visual-1"
         },
         {
           "caption": "توزيع ملمسي للمنتجات",
-          "tag": "تناسق المواد"
+          "tag": "تناسق المواد",
+          "id": "visual-2"
         },
         {
           "caption": "أجواء غابة سينمائية",
-          "tag": "ذكاء اصطناعي سينمائي"
+          "tag": "ذكاء اصطناعي سينمائي",
+          "id": "visual-3"
         }
       ]
     },
@@ -164,25 +178,47 @@
           "category": "01 / معمارية الواجهات",
           "title": "هندسة Next.js و React",
           "description": "مصممة للنمطية، وانتقالات مسار فائقة السرعة، وقابلية التوسع المتجاوبة باستخدام React 19 و Next.js 15 App Router.",
-          "tags": ["React 19", "Next.js App Router", "TypeScript", "SSR / SSG", "Tailwind CSS"]
+          "tags": [
+            "React 19",
+            "Next.js App Router",
+            "TypeScript",
+            "SSR / SSG",
+            "Tailwind CSS"
+          ]
         },
         {
           "category": "02 / الأنظمة والأتمتة",
           "title": "برمجة بايثون ومحركات المهام",
           "description": "بناء مشغلات مهام خلفية مستقلة، وخطوط إنتاج وسائط مؤتمتة، وعمليات دفعية غير متزامنة، وخدمات نظام دقيقة.",
-          "tags": ["Python 3", "AsyncIO", "Data Pipelines", "Headless Workflows", "Automation"]
+          "tags": [
+            "Python 3",
+            "AsyncIO",
+            "Data Pipelines",
+            "Headless Workflows",
+            "Automation"
+          ]
         },
         {
           "category": "03 / عمليات التجارة",
           "title": "واجهات سلة البرمجية ومنطق التجارة",
           "description": "أتمتة التجارة الشاملة، وخطافات ويب سلة في الوقت الحقيقي، ومزامنة الكتالوج، ومعمارية عمليات المتاجر المخصصة.",
-          "tags": ["Salla Platform", "Webhooks", "Theme Customization", "Catalog Automation"]
+          "tags": [
+            "Salla Platform",
+            "Webhooks",
+            "Theme Customization",
+            "Catalog Automation"
+          ]
         },
         {
           "category": "04 / التنفيذ البصري",
           "title": "معمارية الواجهات والوسائط التوليدية",
           "description": "أنظمة تصميم دقيقة، وطباعة هندسية صارمة، ورندرة تجارية احترافية للمنتجات، وتفاعلات دقيقة فائقة السلاسة.",
-          "tags": ["Design Systems", "Generative Media", "Visual Direction", "Geometric Layouts"]
+          "tags": [
+            "Design Systems",
+            "Generative Media",
+            "Visual Direction",
+            "Geometric Layouts"
+          ]
         }
       ]
     },
@@ -240,7 +276,7 @@
   },
   "chat": {
     "title": "مساعد إبراهيم الذكي",
-    "subtitle": "Groq • gpt-oss-120b • معمارية الأنظمة",
+    "subtitle": "الأعمال والاستفسارات عن المشاريع",
     "online": "المساعد التقني المعماري متصل",
     "welcome": "أهلاً بك. أنا المساعد التقني الشخصي لإبراهيم. اسألني عن هندسة Next.js، ومعمارية متاجر سلة، وأتمتة بايثون، والتوجيه البصري.",
     "suggestionsLabel": "استفسارات مقترحة:",

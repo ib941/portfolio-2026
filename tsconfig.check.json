@@ -1,0 +1,15 @@
+{
+  "extends": "./jsconfig.json",
+  "compilerOptions": {
+    "checkJs": true,
+    "noEmit": true,
+    "incremental": false,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node", "react"]
+  },
+  "include": ["src/**/*.js", "src/**/*.jsx", "next.config.mjs"],
+  "exclude": ["node_modules", ".next", "scratch", "dist"]
+}

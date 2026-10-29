@@ -9,7 +9,7 @@ export default function Footer() {
   const { locale, t, isRTL } = useLanguage();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   };
 
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Tagline */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+          <div className="flex flex-col items-center md:items-start text-center md:text-start gap-1">
             <span className="text-sm font-bold tracking-tight text-slate-900">
               {isRTL ? 'إبراهيم الكبسي' : 'Ibrahim Alkabsi'}
             </span>

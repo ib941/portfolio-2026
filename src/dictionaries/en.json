@@ -13,28 +13,6 @@
       "exploreWork": "Explore My Work",
       "getInTouch": "Get in Touch"
     },
-    "metrics": {
-      "exp": {
-        "value": "5+ Years",
-        "label": "Engineering Experience",
-        "sub": "Production web apps"
-      },
-      "typeSafe": {
-        "value": "100%",
-        "label": "Type-Safe & Scalable",
-        "sub": "Clean architecture"
-      },
-      "fps": {
-        "value": "60fps",
-        "label": "Motion Dynamics",
-        "sub": "Fluid interactions"
-      },
-      "speed": {
-        "value": "<100ms",
-        "label": "Time to Interactive",
-        "sub": "Optimized performance"
-      }
-    },
     "engineering": {
       "heading": "Crafted with modern frontend precision",
       "subheading": "Combining scalable system architecture with polished, responsive user interfaces.",
@@ -77,22 +55,40 @@
           "title": "Shourna",
           "subtitle": "Corporate & Industrial Platform",
           "description": "Custom multi-language industrial web infrastructure featuring bilingual localized routing (Arabic & English), responsive service directories, and high-performance asset delivery.",
-          "tags": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS"],
-          "url": "shourna.com"
+          "tags": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "Tailwind CSS"
+          ],
+          "url": "shourna.com",
+          "id": "shourna"
         },
         {
           "title": "Z Fakhama",
           "subtitle": "Custom Web Architecture",
           "description": "High-performance digital presence engineered for fast time-to-interactive, fluid micro-interactions, clean system architecture, and visual distinction.",
-          "tags": ["Next.js", "React", "Tailwind CSS", "Frontend Arch"],
-          "url": "zfakhama.com"
+          "tags": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "Frontend Arch"
+          ],
+          "url": "zfakhama.com",
+          "id": "zfakhama"
         },
         {
           "title": "GTF Plastics",
           "subtitle": "Industrial B2B Showcase",
           "description": "Corporate B2B web infrastructure and manufacturing showcase engineered for high responsiveness, structured product presentation, and enterprise branding.",
-          "tags": ["Next.js", "React", "Tailwind CSS", "B2B Enterprise"],
-          "url": "gtf-plastics.com"
+          "tags": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "B2B Enterprise"
+          ],
+          "url": "gtf-plastics.com",
+          "id": "gtf-plastics"
         }
       ]
     },
@@ -105,22 +101,37 @@
           "title": "Oud Jassar",
           "subtitle": "Luxury Fragrance Storefront",
           "description": "Bespoke digital storefront architecture on the Salla platform, featuring luxury fragrance catalog staging, streamlined checkout UX, and custom store configurations.",
-          "tags": ["Salla Platform", "Theme Customization", "Store Operations"],
-          "url": "oudjassar.com"
+          "tags": [
+            "Salla Platform",
+            "Theme Customization",
+            "Store Operations"
+          ],
+          "url": "oudjassar.com",
+          "id": "oud-jassar"
         },
         {
           "title": "GHENA",
           "subtitle": "E-Commerce Architecture & Ops",
           "description": "End-to-end luxury e-commerce operations, automated catalog workflows, custom storefront adjustments, and integrated digital commerce management.",
-          "tags": ["Salla Platform", "Catalog Automation", "Store Operations"],
-          "url": "ghena.sa"
+          "tags": [
+            "Salla Platform",
+            "Catalog Automation",
+            "Store Operations"
+          ],
+          "url": "ghena.sa",
+          "id": "ghena"
         },
         {
           "title": "Abat Rowa",
           "subtitle": "Digital Storefront Management",
           "description": "High-volume digital fashion storefront management, catalog optimization, structured product taxonomy, and conversion flow optimization.",
-          "tags": ["Salla Platform", "Storefront Architecture", "Conversion Optimization"],
-          "url": "salla.sa/AbatRowa"
+          "tags": [
+            "Salla Platform",
+            "Storefront Architecture",
+            "Conversion Optimization"
+          ],
+          "url": "salla.sa/AbatRowa",
+          "id": "abat-rowa"
         }
       ]
     },
@@ -131,15 +142,18 @@
       "items": [
         {
           "caption": "Precision Halo Lighting",
-          "tag": "Studio Staging"
+          "tag": "Studio Staging",
+          "id": "visual-1"
         },
         {
           "caption": "Textural Product Placement",
-          "tag": "Material Consistency"
+          "tag": "Material Consistency",
+          "id": "visual-2"
         },
         {
           "caption": "Atmospheric Forest Staging",
-          "tag": "Cinematic AI"
+          "tag": "Cinematic AI",
+          "id": "visual-3"
         }
       ]
     },
@@ -164,25 +178,47 @@
           "category": "01 / Frontend Architecture",
           "title": "Next.js & React Engineering",
           "description": "Engineered for modularity, sub-second route transitions, and responsive scalability using React 19 and Next.js 15 App Router.",
-          "tags": ["React 19", "Next.js App Router", "TypeScript", "SSR / SSG", "Tailwind CSS"]
+          "tags": [
+            "React 19",
+            "Next.js App Router",
+            "TypeScript",
+            "SSR / SSG",
+            "Tailwind CSS"
+          ]
         },
         {
           "category": "02 / Systems & Automation",
           "title": "Python Scripting & Task Runners",
           "description": "Building headless background task runners, automated media generation pipelines, asynchronous batch operations, and system daemons.",
-          "tags": ["Python 3", "AsyncIO", "Data Pipelines", "Headless Workflows", "Automation"]
+          "tags": [
+            "Python 3",
+            "AsyncIO",
+            "Data Pipelines",
+            "Headless Workflows",
+            "Automation"
+          ]
         },
         {
           "category": "03 / Commerce Operations",
           "title": "Salla API & E-Commerce Logic",
           "description": "End-to-end commerce automation, real-time Salla webhooks, catalog synchronization, and tailored storefront operations architecture.",
-          "tags": ["Salla Platform", "Webhooks", "Theme Customization", "Catalog Automation"]
+          "tags": [
+            "Salla Platform",
+            "Webhooks",
+            "Theme Customization",
+            "Catalog Automation"
+          ]
         },
         {
           "category": "04 / Visual Execution",
           "title": "UI Architecture & Generative Media",
           "description": "Precision design systems, strict geometric typography, studio-grade commercial product rendering, and fluid micro-interactions.",
-          "tags": ["Design Systems", "Generative Media", "Visual Direction", "Geometric Layouts"]
+          "tags": [
+            "Design Systems",
+            "Generative Media",
+            "Visual Direction",
+            "Geometric Layouts"
+          ]
         }
       ]
     },
@@ -240,7 +276,7 @@
   },
   "chat": {
     "title": "Ibrahim AI Assistant",
-    "subtitle": "Groq • gpt-oss-120b • Architecture",
+    "subtitle": "Portfolio & project inquiries",
     "online": "Technical Architecture Bot",
     "welcome": "Welcome. I am Ibrahim's personal technical assistant. Ask me questions about his Next.js engineering, Salla e-commerce architecture, Python automation pipelines, or visual direction.",
     "suggestionsLabel": "Suggested Inquiries:",

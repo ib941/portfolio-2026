@@ -7,27 +7,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src tests next.config.mjs",
+    "typecheck": "tsc --project tsconfig.check.json",
+    "test": "node --test tests/*.test.js",
+    "test:smoke": "node tests/smoke.mjs"
   },
   "dependencies": {
-    "@ai-sdk/google": "^4.0.93",
     "@ai-sdk/groq": "^4.0.59",
-    "@ai-sdk/openai": "^4.0.91",
     "@ai-sdk/react": "^4.0.140",
     "ai": "^7.0.137",
-    "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
-    "next": "^15.2.0",
+    "next": "^15.5.28",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1",
-    "tailwind-merge": "^3.0.1"
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.2",
-    "tailwindcss": "^3.4.17"
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.25",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "postcss": "$postcss"
   }
 }

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -19,27 +20,27 @@ const SALLA_PROJECT_META = [
 ];
 
 const VISUAL_MEDIA = [
-  { src: '/project-1.jpg', alt: 'GHENA Perfume - Studio Staging' },
-  { src: '/project-2.jpg', alt: 'GHENA Perfume - Textural Cream' },
-  { src: '/project-3.jpg', alt: 'RED NIGHT - Cinematic AI' },
+  { id: 'visual-1', src: '/project-1.jpg', alt: 'GHENA Perfume - Studio Staging' },
+  { id: 'visual-2', src: '/project-2.jpg', alt: 'GHENA Perfume - Textural Cream' },
+  { id: 'visual-3', src: '/project-3.jpg', alt: 'RED NIGHT - Cinematic AI' },
 ];
 
 export default function WorkPage() {
   const { locale, t, dict, isRTL } = useLanguage();
 
-  const webProjects = (dict?.work?.section1?.projects || []).map((p, i) => ({
+  const webProjects = (dict?.work?.section1?.projects || []).map((p) => ({
     ...p,
-    ...WEB_PROJECT_META[i],
+    ...WEB_PROJECT_META.find(meta => meta.id === p.id),
   }));
 
-  const sallaProjects = (dict?.work?.section2?.projects || []).map((p, i) => ({
+  const sallaProjects = (dict?.work?.section2?.projects || []).map((p) => ({
     ...p,
-    ...SALLA_PROJECT_META[i],
+    ...SALLA_PROJECT_META.find(meta => meta.id === p.id),
   }));
 
-  const visualItems = (dict?.work?.section3?.items || []).map((item, i) => ({
+  const visualItems = (dict?.work?.section3?.items || []).map((item) => ({
     ...item,
-    ...VISUAL_MEDIA[i],
+    ...VISUAL_MEDIA.find(meta => meta.id === item.id),
   }));
 
   return (
@@ -68,7 +69,7 @@ export default function WorkPage() {
               {t('work.section1.description')}
             </p>
           </div>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500">
             {t('work.section1.index')}
           </span>
         </div>
@@ -77,21 +78,22 @@ export default function WorkPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
           {webProjects.map((project, idx) => (
             <motion.a
+              id={project.id}
               key={project.id || idx}
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group flex flex-col justify-between border-b border-black/10 pb-8 hover:border-black/30 transition-colors"
+              className="scroll-mt-32 group flex flex-col justify-between border-b border-black/10 pb-8 hover:border-black/30 transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-xs font-mono text-slate-400 font-medium">
+                  <span className="text-xs font-mono text-slate-500 font-medium">
                     0{idx + 1}
                   </span>
-                  <ArrowUpRight className={`w-4 h-4 text-slate-400 group-hover:text-black transition-transform ${isRTL ? 'rotate-[-90deg]' : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'}`} />
+                  <ArrowUpRight className={`w-4 h-4 text-slate-500 group-hover:text-black transition-transform ${isRTL ? 'rotate-[-90deg]' : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'}`} />
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-black transition-colors mb-1">
@@ -101,7 +103,7 @@ export default function WorkPage() {
                   {project.subtitle}
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
                   {project.description}
                 </p>
               </div>
@@ -117,7 +119,7 @@ export default function WorkPage() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-3 text-xs font-mono text-slate-400 group-hover:text-black transition-colors flex items-center gap-1">
+                <div className="mt-3 text-xs font-mono text-slate-500 group-hover:text-black transition-colors flex items-center gap-1">
                   <span>↗</span>
                   <span>{project.url}</span>
                 </div>
@@ -138,7 +140,7 @@ export default function WorkPage() {
               {t('work.section2.description')}
             </p>
           </div>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500">
             {t('work.section2.index')}
           </span>
         </div>
@@ -147,21 +149,22 @@ export default function WorkPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
           {sallaProjects.map((project, idx) => (
             <motion.a
+              id={project.id}
               key={project.id || idx}
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group flex flex-col justify-between border-b border-black/10 pb-8 hover:border-black/30 transition-colors"
+              className="scroll-mt-32 group flex flex-col justify-between border-b border-black/10 pb-8 hover:border-black/30 transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-xs font-mono text-slate-400 font-medium">
+                  <span className="text-xs font-mono text-slate-500 font-medium">
                     0{idx + 1}
                   </span>
-                  <ArrowUpRight className={`w-4 h-4 text-slate-400 group-hover:text-black transition-transform ${isRTL ? 'rotate-[-90deg]' : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'}`} />
+                  <ArrowUpRight className={`w-4 h-4 text-slate-500 group-hover:text-black transition-transform ${isRTL ? 'rotate-[-90deg]' : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'}`} />
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-black transition-colors mb-1">
@@ -171,7 +174,7 @@ export default function WorkPage() {
                   {project.subtitle}
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
                   {project.description}
                 </p>
               </div>
@@ -187,7 +190,7 @@ export default function WorkPage() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-3 text-xs font-mono text-slate-400 group-hover:text-black transition-colors flex items-center gap-1">
+                <div className="mt-3 text-xs font-mono text-slate-500 group-hover:text-black transition-colors flex items-center gap-1">
                   <span>↗</span>
                   <span>{project.url}</span>
                 </div>
@@ -208,7 +211,7 @@ export default function WorkPage() {
               {t('work.section3.description')}
             </p>
           </div>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500">
             {t('work.section3.index')}
           </span>
         </div>
@@ -218,16 +221,18 @@ export default function WorkPage() {
           {visualItems.map((item, idx) => (
             <div key={idx} className="flex flex-col gap-3 group">
               <div className="aspect-square overflow-hidden rounded-xl bg-black/5 border border-black/10 relative">
-                <img
+                <Image
                   src={item.src}
-                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 1024px) 300px, (min-width: 768px) 30vw, 100vw"
+                  alt={isRTL ? item.caption : item.alt}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
               </div>
               <div className="flex items-center justify-between text-xs font-mono text-slate-600">
                 <span className="font-medium text-slate-800">{item.caption}</span>
-                <span className="text-slate-400">#{item.tag}</span>
+                <span className="text-slate-500">#{item.tag}</span>
               </div>
             </div>
           ))}

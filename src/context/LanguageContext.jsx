@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useEffect, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { getDictionary } from '@/dictionaries';
 
@@ -20,16 +20,12 @@ export function LanguageProvider({ children, initialLocale = 'en' }) {
 
   // Determine current locale from pathname or fallback
   const currentLocale = useMemo(() => {
-    if (pathname.startsWith('/ar')) return 'ar';
-    if (pathname.startsWith('/en')) return 'en';
+    if (/^\/ar(?:\/|$)/.test(pathname)) return 'ar';
+    if (/^\/en(?:\/|$)/.test(pathname)) return 'en';
     return initialLocale || 'en';
   }, [pathname, initialLocale]);
 
-  const [locale, setLocale] = useState(currentLocale);
-
-  useEffect(() => {
-    setLocale(currentLocale);
-  }, [currentLocale]);
+  const locale = currentLocale;
 
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
   const isRTL = locale === 'ar';
@@ -71,7 +67,7 @@ export function LanguageProvider({ children, initialLocale = 'en' }) {
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
     }
 
-    setLocale(newLocale);
+
 
     // Compute target path
     let newPath = pathname;
@@ -84,7 +80,7 @@ export function LanguageProvider({ children, initialLocale = 'en' }) {
     }
 
     if (newPath === '') newPath = `/${newLocale}`;
-    router.push(newPath);
+    router.push(newPath + window.location.search + window.location.hash);
   };
 
   const toggleLanguage = () => {

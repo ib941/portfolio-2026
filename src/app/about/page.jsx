@@ -40,7 +40,7 @@ export default function AboutPage() {
               {t('about.section1.description')}
             </p>
           </div>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500">
             {t('about.section1.index')}
           </span>
         </div>
@@ -50,19 +50,19 @@ export default function AboutPage() {
           {skills.map((skill, idx) => (
             <motion.div
               key={skill.title || idx}
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               className="flex flex-col justify-between border-b border-black/10 pb-8"
             >
               <div>
-                <span className="text-xs font-mono text-slate-400 font-medium block mb-2">
+                <span className="text-xs font-mono text-slate-500 font-medium block mb-2">
                   {skill.category}
                 </span>
                 <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-2">
                   {skill.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
                   {skill.description}
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               {t('about.section2.description')}
             </p>
           </div>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500">
             {t('about.section2.index')}
           </span>
         </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
           {timeline.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               className="border-b border-black/10 pb-8 flex flex-col gap-2"
@@ -118,7 +118,7 @@ export default function AboutPage() {
               <div className="text-xs font-mono font-semibold text-slate-700">
                 {item.company}
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1 font-normal">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-1 font-normal">
                 {item.description}
               </p>
             </motion.div>

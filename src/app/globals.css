@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,7 +19,7 @@
   html[dir="rtl"],
   html[dir="rtl"] body,
   .font-arabic {
-    font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-cairo), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   body {
@@ -207,4 +205,16 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(148, 163, 184, 0.5);
+}
+
+/* Shared keyboard and motion behavior, independent of decorative styling. */
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid #0273c8; outline-offset: 4px; }
+#main-content:focus { outline: none; }
+.skip-link { position: fixed; top: 0.75rem; inset-inline-start: 1rem; z-index: 100; transform: translateY(-180%); padding: 0.75rem 1rem; background: #2a2a2a; color: white; border-radius: 0.5rem; }
+.skip-link:focus { transform: translateY(0); }
+.prose-chat pre code { background: transparent; padding: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html, html.scroll-smooth { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

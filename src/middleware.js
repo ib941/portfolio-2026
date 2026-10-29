@@ -11,6 +11,7 @@ export function middleware(request) {
     pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/public') ||
+    pathname === '/opengraph-image' ||
     pathname.includes('.')
   ) {
     return NextResponse.next();
@@ -23,7 +24,9 @@ export function middleware(request) {
 
   if (pathnameHasLocale) {
     const currentLocale = pathname.split('/')[1];
-    const response = NextResponse.next();
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set('x-portfolio-locale', currentLocale);
+    const response = NextResponse.next({ request: { headers: requestHeaders } });
     response.cookies.set('NEXT_LOCALE', currentLocale, {
       path: '/',
       maxAge: 31536000,
@@ -38,7 +41,8 @@ export function middleware(request) {
 
   // Redirect to localized path (e.g., / -> /en, /work -> /en/work)
   const targetPath = pathname === '/' ? `/${locale}` : `/${locale}${pathname}`;
-  const redirectUrl = new URL(targetPath, request.url);
+  const redirectUrl = request.nextUrl.clone();
+  redirectUrl.pathname = targetPath;
   return NextResponse.redirect(redirectUrl);
 }
 
